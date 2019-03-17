@@ -42,6 +42,16 @@ public class Playlist
 	{
 		return list.size();
 	}
+	
+	public Song skip()
+	{
+		return list.get(++index);
+	}
+	
+	public Song previous()
+	{
+		return list.get(--index);
+	}
 
 	public Song[] shuffle()
 	{
