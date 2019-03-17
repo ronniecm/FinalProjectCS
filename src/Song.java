@@ -59,6 +59,7 @@ public class Song {
 	}
 	
 	public void pause() {
+		System.out.println("bitch");
 		song.stop();
 	}
 	
