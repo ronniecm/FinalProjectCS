@@ -1,11 +1,5 @@
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
-
-import javafx.scene.media.*;
-import org.apache.poi.ss.usermodel.Workbook;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
-import org.eclipse.ui.internal.Workbench;
-
 import java.io.*;
 import java.security.InvalidParameterException;
 
@@ -24,10 +18,9 @@ public class Song {
 			System.out.println("Error creating the song. Check constructor for " + this.title + ".");
 		}
 	}
-	
-	
+
 	public String getInfo(Metadata data) throws InvalidParameterException {
-		switch(data) {
+		switch (data) {
 		case TITLE:
 			return title;
 		case ARTIST:
@@ -38,36 +31,35 @@ public class Song {
 			throw new InvalidParameterException();
 		}
 	}
-	
+
 	public int getRunningTimeInSeconds() {
-		return (int)song.getMicrosecondLength() / 1000 / 1000;
+		return (int) song.getMicrosecondLength() / 1000 / 1000;
 	}
-	
+
 	public int getCurrentTimeInSeconds() {
-		return (int)song.getMicrosecondPosition() / 1000 * 1000;
+		return (int) song.getMicrosecondPosition() / 1000 * 1000;
 	}
-	
+
 	public void playFromStart() {
 		song.setMicrosecondPosition(0);
 		song.start();
 	}
-	
+
 	public void playFromPoint(int seconds) {
-		long position = (long)seconds * 1000 * 1000;
+		long position = (long) seconds * 1000 * 1000;
 		song.stop();
 		song.setMicrosecondPosition(position);
 		song.start();
 	}
-	
+
 	public void pause() {
-		System.out.println("bitch");
 		song.stop();
 	}
-	
+
 	public void resume() {
 		song.start();
 	}
-	
+
 	public boolean isOver() {
 		return song.getMicrosecondPosition() == song.getMicrosecondLength();
 	}
@@ -75,11 +67,11 @@ public class Song {
 	public String toString() {
 		return title + " by " + artist;
 	}
-	
+
 	private Clip createSong() throws Exception {
 		File audioFile = new File(filepath);
 		Clip audio = AudioSystem.getClip();
 		audio.open(AudioSystem.getAudioInputStream(audioFile));
 		return audio;
-	}	
+	}
 }
