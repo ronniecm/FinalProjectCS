@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.launching.macosx.MacOSXType/Java SE 8 [1.8.0_131]"/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="lib" path="/Users/frcprogramming/.p2/pool/plugins/org.eclipse.osgi_3.13.200.v20181130-2106.jar" sourcepath="/Users/frcprogramming/.p2/pool/plugins/org.eclipse.osgi_3.13.200.v20181130-2106.jar"/>
 	<classpathentry kind="lib" path="/Users/frcprogramming/.p2/pool/plugins/org.eclipse.core.commands_3.9.200.v20180827-1727.jar" sourcepath="/Users/frcprogramming/.p2/pool/plugins/org.eclipse.core.commands_3.9.200.v20180827-1727.jar"/>

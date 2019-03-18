@@ -1,6 +1,7 @@
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
 
+import javafx.scene.media.*;
 import org.apache.poi.ss.usermodel.Workbook;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.eclipse.ui.internal.Workbench;
@@ -71,6 +72,9 @@ public class Song {
 		return song.getMicrosecondPosition() == song.getMicrosecondLength();
 	}
 
+	public String toString() {
+		return title + " by " + artist;
+	}
 	
 	private Clip createSong() throws Exception {
 		File audioFile = new File(filepath);
