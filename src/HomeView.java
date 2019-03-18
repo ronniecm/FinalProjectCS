@@ -14,26 +14,20 @@ import java.awt.Font;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 
-public class HomeView extends JFrame
-{
+public class HomeView extends JFrame {
 	private DefaultListModel listModel = new DefaultListModel();
 	private JPanel contentPane;
 
 	/**
 	 * Launch the application.
 	 */
-	public static void main(String[] args)
-	{
-		EventQueue.invokeLater(new Runnable()
-		{
-			public void run()
-			{
-				try
-				{
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
 					HomeView frame = new HomeView();
 					frame.setVisible(true);
-				} catch (Exception e)
-				{
+				} catch (Exception e) {
 					e.printStackTrace();
 				}
 			}
@@ -43,8 +37,7 @@ public class HomeView extends JFrame
 	/**
 	 * Create the frame.
 	 */
-	public HomeView()
-	{
+	public HomeView() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
@@ -53,7 +46,7 @@ public class HomeView extends JFrame
 		setContentPane(contentPane);
 
 		JList playlistList = new JList(listModel);
-		
+
 		contentPane.add(playlistList, BorderLayout.CENTER);
 
 		JPanel panel = new JPanel();
@@ -61,11 +54,9 @@ public class HomeView extends JFrame
 		panel.setLayout(new GridLayout(1, 0, 0, 0));
 
 		JButton addPlaylistBtn = new JButton("Add Playlist");
-		addPlaylistBtn.addActionListener(new ActionListener()
-		{
-			public void actionPerformed(ActionEvent arg0)
-			{
-				Playlist p = new Playlist("placeholder");//take string from another frame as the playlist name
+		addPlaylistBtn.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				Playlist p = new Playlist("placeholder");// take string from another frame as the playlist name
 				listModel.insertElementAt(p.getName(), 0);
 			}
 		});
