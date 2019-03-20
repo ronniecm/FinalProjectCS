@@ -7,11 +7,15 @@ import javax.swing.border.EmptyBorder;
 import javax.swing.JList;
 import javax.swing.JButton;
 import java.awt.GridLayout;
+
+import javax.imageio.ImageIO;
 import javax.swing.AbstractListModel;
 import javax.swing.DefaultListModel;
 import javax.swing.JLabel;
 import java.awt.Font;
+import java.awt.Graphics;
 import java.awt.event.ActionListener;
+import java.io.File;
 import java.awt.event.ActionEvent;
 
 public class HomeView extends JFrame {
@@ -26,6 +30,8 @@ public class HomeView extends JFrame {
 			public void run() {
 				try {
 					HomeView frame = new HomeView();
+					frame.setLocation(0, 0);
+					frame.setSize(1280, 730);
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -46,7 +52,7 @@ public class HomeView extends JFrame {
 		setContentPane(contentPane);
 
 		JList playlistList = new JList(listModel);
-
+		
 		contentPane.add(playlistList, BorderLayout.CENTER);
 
 		JPanel panel = new JPanel();
