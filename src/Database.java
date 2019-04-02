@@ -32,7 +32,6 @@ public class Database {
 			for(Cell c : row)
 				data[i++] = c.getStringCellValue();
 			
-			//db.add(new Song(data[0], data[1], data[2], data[3]));
 			Song s = new Song(data[0], data[1], data[2], data[3]);
 			db2.put(data[0], s);
 			j++;

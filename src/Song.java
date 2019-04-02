@@ -50,11 +50,12 @@ public class Song {
 		song.start();
 	}
 
-	public void playFromPoint(int seconds) {
+	public void playFromPoint(int seconds, boolean isPaused) {
 		long position = (long) seconds * 1000 * 1000;
 		pause();
 		song.setMicrosecondPosition(position);
-		song.start();
+		if(!isPaused)
+			song.start();
 	}
 
 	public void pause() {
@@ -70,7 +71,7 @@ public class Song {
 
 	public boolean isOver() {
 		
-		return song.isOpen() && song.getMicrosecondPosition() == song.getMicrosecondLength();
+		return song.isOpen() && getCurrentTimeInSeconds() == getRunningTimeInSeconds();
 	}
 	
 	public String getArtworkPath() {
