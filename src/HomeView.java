@@ -110,7 +110,7 @@ public class HomeView extends JFrame
 		{
 			public void actionPerformed(ActionEvent arg0)
 			{
-				Playlist p = new Playlist("placeholder");// take string from another frame as the playlist name
+				Playlist p = new Playlist(userText.getText());// take string from another frame as the playlist name
 				listModel.insertElementAt(p.getName(), 0);
 			}
 		});
