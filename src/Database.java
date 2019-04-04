@@ -66,4 +66,13 @@ public class Database {
 		//System.out.println(d.getSong("Demons").getArtworkPath());
 		System.out.println(d);
 	}
+	
+	public String[] toArray() {
+		String[] songs = new String[db2.size()];
+		Set<String> keySet = db2.keySet();
+		int i = 0;
+		for(String key : keySet)
+			songs[i++] = db2.get(key).toString();
+		return songs;
+	}
 }
