@@ -15,6 +15,13 @@ public class HomeView extends JFrame {
 	 * Launch the application.
 	 */
 	public static void main(String[] args) {
+		if(true) {
+			try {
+				UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
+			} catch(Exception e) {
+				e.getStackTrace();
+			}
+		}
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
@@ -124,14 +131,19 @@ public class HomeView extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				playlists.remove(playlistList.getSelectedValue());
+				listModel.remove(playlistList.getSelectedIndex());
 			}
 		});
 		panel_1.add(removePlaylistBtn);
 		addPlaylistBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
-				Playlist p = new Playlist(userText.getText());// take string from another frame as the playlist name
-				playlists.put(userText.getText(), p);
-				listModel.insertElementAt(p.getName(), 0);
+				if(playlists.containsKey(userText.getText()))
+					JOptionPane.showMessageDialog(contentPane, "Playlist already exists, choose another name");
+				else {
+					Playlist p = new Playlist(userText.getText());// take string from another frame as the playlist name
+					playlists.put(userText.getText(), p);
+					listModel.insertElementAt(p.getName(), 0);
+				}
 			}
 		});
 

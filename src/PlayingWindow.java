@@ -2,22 +2,23 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.*;
+import java.util.*;
+import javax.swing.Timer;
 
 public class PlayingWindow extends JFrame {
 
 	private JPanel contentPane, panel_1;
-	private Database d = new Database();
-	private Object[] queue = d.getNames().toArray();
-	private int currentSongIndex = 0;
-	private Song currentSong = d.getSong((String)queue[currentSongIndex]);
 	private JSlider slider;
 	private JLabel timeLabel;
-	private JLabel songLabel;
-	JButton playPauseBtn;
+	private JButton playPauseBtn;
 	private JButton albumArtwork;
+	private Database d = new Database();
+	private ArrayList<Song> queue = new ArrayList<Song>();
+	private int currentSongIndex = 0;
+	private Song currentSong = null;
+	private MarqueePanel mp = new MarqueePanel(new Song("", "", "", "").toString(), 15);
 	private boolean previousPressed = false;
 	private boolean isPaused = false;
-	private MarqueePanel mp = new MarqueePanel(currentSong.toString(), 15);
 
 	/**
 	 * Launch the application.
@@ -44,6 +45,11 @@ public class PlayingWindow extends JFrame {
 	 * @throws Exception 
 	 */
 	public PlayingWindow() throws Exception {		
+		if(queue.isEmpty()) {
+			currentSong = d.getRandomSong();
+		} else {
+			currentSong = queue.get(0);
+		}
 		currentSong.playFromStart();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(0, 0, 1280, 730);
@@ -65,6 +71,7 @@ public class PlayingWindow extends JFrame {
 		panel.setLayout(new GridLayout(1, 0, 0, 0));
 		
 		mp.setBounds(489, 50, 300, 30);
+		mp.setText(currentSong);
 		panel_1.add(mp, BorderLayout.NORTH);
 
 		albumArtwork = new JButton();
@@ -86,21 +93,25 @@ public class PlayingWindow extends JFrame {
 			public void actionPerformed(ActionEvent e)  {
 				previousPressed = true;
 				currentSong.stop();
-				currentSongIndex--;
-				if(currentSongIndex < 0) {
-					currentSongIndex = queue.length - 1;
+				if(queue.isEmpty()) {
+					currentSong = d.getRandomSong();
+				} else {
+					currentSongIndex--;
+					if(currentSongIndex < 0)
+						currentSongIndex = queue.size() - 1;
+					currentSong = queue.get(currentSongIndex);
 				}
 				
-				currentSong = d.getSong((String)queue[currentSongIndex]);
-				mp.setText(currentSong);
 				try {
 					currentSong.playFromStart();
-					playPauseBtn.setText("Pause");
-					isPaused = false;
 				} catch (Exception e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
+				
+				mp.setText(currentSong);
+				playPauseBtn.setText("Pause");
+				isPaused = false;
 				slider.setValue(0);
 				slider.setMaximum(currentSong.getRunningTimeInSeconds());
 				albumArtwork.setIcon(new ImageIcon(currentSong.getArtworkPath()));
@@ -154,6 +165,7 @@ public class PlayingWindow extends JFrame {
 		updateTimeThread();
 		updateSongThread();
 		mp.start();
+		
 	}
 	
 	private void updateTimeThread() {
@@ -195,18 +207,24 @@ public class PlayingWindow extends JFrame {
 	
 	private void next() {
 		currentSong.stop();
-		currentSongIndex++;
-		if(currentSongIndex > queue.length - 1)
-			currentSongIndex = 0;
-		currentSong = d.getSong((String)queue[currentSongIndex]);
+		
+		if(queue.isEmpty()) {
+			currentSong = d.getRandomSong();
+		} else {
+			currentSongIndex++;
+			if(currentSongIndex > queue.size() - 1)
+				currentSongIndex = 0;
+			currentSong = queue.get(currentSongIndex);
+		}
+		
 		try {
 			currentSong.playFromStart();
-			playPauseBtn.setText("Pause");
-			isPaused = false;
 		} catch (Exception e1) {
 			e1.printStackTrace();
 		}
 		
+		playPauseBtn.setText("Pause");
+		isPaused = false;
 		mp.setText(currentSong);
 		slider.setValue(0);
 		slider.setMaximum(currentSong.getRunningTimeInSeconds());
@@ -217,6 +235,21 @@ public class PlayingWindow extends JFrame {
 		int g = (int)(Math.random() * 256);
 		int b = (int)(Math.random() * 256);
 		panel_1.setBackground(new Color(r, g, b));
+	}
+	
+	public void addToQueue(Song s) {
+		queue.add(s);
+	}
+	
+	public void removeFromQueue(Song s) {
+		queue.remove(s);
+	}
+	
+	public void updateWindow(Song s) {
+		mp.setText(s);
+		slider.setValue(0);
+		slider.setMaximum(s.getRunningTimeInSeconds());
+		albumArtwork.setIcon(new ImageIcon(s.getArtworkPath()));
 	}
 	
 	private class MarqueePanel extends JPanel implements ActionListener {

@@ -61,11 +61,6 @@ public class Database {
 	public Set<String> getNames() {
 		return db2.keySet();
 	}
-	public static void main(String[] args) {
-		Database d = new Database();
-		//System.out.println(d.getSong("Demons").getArtworkPath());
-		System.out.println(d);
-	}
 	
 	public String[] toArray() {
 		String[] songs = new String[db2.size()];
@@ -74,5 +69,12 @@ public class Database {
 		for(String key : keySet)
 			songs[i++] = db2.get(key).toString();
 		return songs;
+	}
+	
+	public Song getRandomSong() {
+		Set<String> keySet = db2.keySet();
+		Object[] keySetArray = keySet.toArray();
+		int randomInd = (int)(Math.random() * keySetArray.length);
+		return db2.get(keySetArray[randomInd]);
 	}
 }
