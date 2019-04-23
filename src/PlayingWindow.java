@@ -6,7 +6,6 @@ import java.util.*;
 import javax.swing.Timer;
 
 public class PlayingWindow extends JFrame {
-
 	private JPanel contentPane, panel_1;
 	private JSlider slider;
 	private JLabel timeLabel;
@@ -44,7 +43,7 @@ public class PlayingWindow extends JFrame {
 	 * Create the frame.
 	 * @throws Exception 
 	 */
-	public PlayingWindow() throws Exception {		
+	public PlayingWindow() throws Exception {
 		if(queue.isEmpty()) {
 			currentSong = d.getRandomSong();
 		} else {
@@ -52,8 +51,9 @@ public class PlayingWindow extends JFrame {
 		}
 		currentSong.playFromStart();
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(0, 0, 1280, 730);
+		setBounds(0, 730/2, 1280, 730/2);
 		contentPane = new JPanel();
+		contentPane.setFocusable(true);
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(new BorderLayout(0, 0));
@@ -124,15 +124,7 @@ public class PlayingWindow extends JFrame {
 		playPauseBtn.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if(((JButton)e.getSource()).getText().equals("Pause")) {
-					currentSong.pause();
-					isPaused = true;
-					((JButton)e.getSource()).setText("Play");
-				} else {
-					currentSong.resume();
-					((JButton)e.getSource()).setText("Pause");
-					isPaused = false;
-				}
+				playPause();
 			}
 		});
 		panel.add(playPauseBtn);
@@ -166,6 +158,13 @@ public class PlayingWindow extends JFrame {
 		updateSongThread();
 		mp.start();
 		
+		contentPane.addKeyListener(new KeyAdapter() {
+			@Override
+			public void keyPressed(KeyEvent e) {
+				if(e.getKeyChar() == ' ')
+					playPause();
+			}
+		});
 	}
 	
 	private void updateTimeThread() {
@@ -237,6 +236,18 @@ public class PlayingWindow extends JFrame {
 		panel_1.setBackground(new Color(r, g, b));
 	}
 	
+	private void playPause() {
+		if(playPauseBtn.getText().equals("Pause")) {
+			currentSong.pause();
+			isPaused = true;
+			playPauseBtn.setText("Play");
+		} else {
+			currentSong.resume();
+			playPauseBtn.setText("Pause");
+			isPaused = false;
+		}
+	}
+	
 	public void addToQueue(Song s) {
 		queue.add(s);
 	}
@@ -246,10 +257,19 @@ public class PlayingWindow extends JFrame {
 	}
 	
 	public void updateWindow(Song s) {
-		mp.setText(s);
+		currentSong.stop();
+		currentSong = s;
+		try {
+			currentSong.playFromStart();
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		mp.setText(currentSong);
 		slider.setValue(0);
-		slider.setMaximum(s.getRunningTimeInSeconds());
-		albumArtwork.setIcon(new ImageIcon(s.getArtworkPath()));
+		slider.setMaximum(currentSong.getRunningTimeInSeconds());
+		System.out.println(currentSong.getRunningTimeInSeconds());
+		albumArtwork.setIcon(new ImageIcon(currentSong.getArtworkPath()));
 	}
 	
 	private class MarqueePanel extends JPanel implements ActionListener {

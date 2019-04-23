@@ -4,7 +4,6 @@ import javax.swing.*;
 import javax.swing.border.*;
 
 public class PlaylistViewer extends JFrame {
-
 	private JPanel contentPane, btnPanel, songsPanel;
 	private JLabel playlistLabel;
 	private JButton removeBtn, backBtn, addBtn;
@@ -14,9 +13,10 @@ public class PlaylistViewer extends JFrame {
 	private Playlist m_playlist;
 	
 	public PlaylistViewer() {
+		HomeView.playingWindow.setVisible(true);
 		//configure JFrame
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(0, 0, 1280, 730);
+		setBounds(1280/2, 0, 1280/2, 730/2);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		contentPane.setLayout(new BorderLayout(0, 0));
@@ -77,6 +77,31 @@ public class PlaylistViewer extends JFrame {
 		
 		//playList displays songs in playlist
 		playList = new JList<String>(listModel);
+		playList.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				JPopupMenu menu = new JPopupMenu();
+				JMenuItem play = new JMenuItem("Play Song");
+				play.addActionListener(new ActionListener() {
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						String selectedSong = playList.getSelectedValue();
+						String title = selectedSong.substring(0, selectedSong.indexOf(" by"));
+						try {
+							HomeView.playingWindow.updateWindow(d.getSong(title));
+						} catch (Exception ex) {
+							ex.getStackTrace();
+						}
+					}
+				});
+				JMenuItem addToQueue = new JMenuItem("Add to Queue");
+				JMenuItem removeFromPlaylist = new JMenuItem("Remove from Playlist");
+				menu.add(play);
+				menu.add(addToQueue);
+				menu.add(removeFromPlaylist);
+				menu.show(playList, e.getX(), e.getY());
+			}
+		});
 		songsPanel.add(playList);
 		
 		//scrollPane used to make database JList scrollable
@@ -104,5 +129,4 @@ public class PlaylistViewer extends JFrame {
 		for(String s : m_playlist.toStringArray())
 			listModel.addElement(s);
 	}
-
 }
