@@ -3,8 +3,8 @@ import java.awt.event.*;
 import javax.swing.*;
 import javax.swing.border.*;
 
-public class PlaylistViewer extends JFrame {
-	private JPanel contentPane, btnPanel, songsPanel;
+public class PlaylistViewer extends JPanel {
+	private JPanel btnPanel, songsPanel;
 	private JLabel playlistLabel;
 	private JButton removeBtn, backBtn, addBtn;
 	private JList<String> databaseList, playList;
@@ -13,24 +13,19 @@ public class PlaylistViewer extends JFrame {
 	private Playlist m_playlist;
 	
 	public PlaylistViewer() {
-		HomeView.playingWindow.setVisible(true);
 		//configure JFrame
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(1280/2, 0, 1280/2, 730/2);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(new BorderLayout(0, 0));
-		setContentPane(contentPane);
+		setBorder(new EmptyBorder(5, 5, 5, 5));
+		setLayout(new BorderLayout(0, 0));
 		
 		//title of playlist displayed at the top
 		playlistLabel = new JLabel();
 		playlistLabel.setFont(new Font("Calibri", Font.PLAIN, 24));
 		playlistLabel.setHorizontalAlignment(SwingConstants.CENTER);
-		contentPane.add(playlistLabel, BorderLayout.NORTH);
+		add(playlistLabel, BorderLayout.NORTH);
 		
 		//btnPanel used for buttons at bottom
 		btnPanel = new JPanel();
-		contentPane.add(btnPanel, BorderLayout.SOUTH);
+		add(btnPanel, BorderLayout.SOUTH);
 		btnPanel.setLayout(new GridLayout(1, 0, 0, 0));
 		
 		//removeBtn used to remove a song
@@ -72,7 +67,7 @@ public class PlaylistViewer extends JFrame {
 		
 		//songsPanel for two JLists
 		songsPanel = new JPanel();
-		contentPane.add(songsPanel, BorderLayout.CENTER);
+		add(songsPanel, BorderLayout.CENTER);
 		songsPanel.setLayout(new GridLayout(1, 0, 0, 0));
 		
 		//playList displays songs in playlist
@@ -87,11 +82,13 @@ public class PlaylistViewer extends JFrame {
 					public void actionPerformed(ActionEvent e) {
 						String selectedSong = playList.getSelectedValue();
 						String title = selectedSong.substring(0, selectedSong.indexOf(" by"));
+						/*
 						try {
 							HomeView.playingWindow.updateWindow(d.getSong(title));
 						} catch (Exception ex) {
 							ex.getStackTrace();
 						}
+						*/
 					}
 				});
 				JMenuItem addToQueue = new JMenuItem("Add to Queue");
@@ -118,6 +115,7 @@ public class PlaylistViewer extends JFrame {
 	//closes PlaylistViewer window by calling setVisible()
 	public void closeWindow() {
 		setVisible(false);
+		//Main.app.showHomeView();
 	}
 	
 	//update certain components to match the given Playlist p

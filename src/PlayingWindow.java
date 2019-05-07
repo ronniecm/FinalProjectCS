@@ -5,8 +5,8 @@ import java.awt.event.*;
 import java.util.*;
 import javax.swing.Timer;
 
-public class PlayingWindow extends JFrame {
-	private JPanel contentPane, panel_1;
+public class PlayingWindow extends JPanel {
+	private JPanel panel_1;
 	private JSlider slider;
 	private JLabel timeLabel;
 	private JButton playPauseBtn;
@@ -29,7 +29,7 @@ public class PlayingWindow extends JFrame {
 					PlayingWindow frame = new PlayingWindow();
 					frame.setLocation(0, 0);
 					frame.setSize(1280, 730);
-					frame.setVisible(true);
+					//frame.setVisible(true);
 					
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -49,17 +49,12 @@ public class PlayingWindow extends JFrame {
 		} else {
 			currentSong = queue.get(0);
 		}
-		currentSong.playFromStart();
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(0, 730/2, 1280, 730/2);
-		contentPane = new JPanel();
-		contentPane.setFocusable(true);
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		setContentPane(contentPane);
-		contentPane.setLayout(new BorderLayout(0, 0));
+		//currentSong.playFromStart();
+		setBorder(new EmptyBorder(5, 5, 5, 5));
+		setLayout(new BorderLayout(0, 0));
 		
 		panel_1 = new JPanel();
-		contentPane.add(panel_1, BorderLayout.CENTER);
+		add(panel_1, BorderLayout.CENTER);
 		panel_1.setLayout(null);
 		int r = (int)(Math.random() * 256);
 		int g = (int)(Math.random() * 256);
@@ -67,7 +62,7 @@ public class PlayingWindow extends JFrame {
 		panel_1.setBackground(new Color(r, g, b));
 		
 		JPanel panel = new JPanel();
-		contentPane.add(panel, BorderLayout.SOUTH);
+		add(panel, BorderLayout.SOUTH);
 		panel.setLayout(new GridLayout(1, 0, 0, 0));
 		
 		mp.setBounds(489, 50, 300, 30);
@@ -158,7 +153,7 @@ public class PlayingWindow extends JFrame {
 		updateSongThread();
 		mp.start();
 		
-		contentPane.addKeyListener(new KeyAdapter() {
+		addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyPressed(KeyEvent e) {
 				if(e.getKeyChar() == ' ')

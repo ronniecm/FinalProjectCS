@@ -4,54 +4,24 @@ import java.awt.event.*;
 import java.util.*;
 import javax.swing.border.*;
 
-public class HomeView extends JFrame {
-	public static PlayingWindow playingWindow;
+public class HomeView extends JPanel {
+	//public static PlayingWindow playingWindow;
 	private DefaultListModel<String> listModel = new DefaultListModel<String>();
-	private JPanel contentPane;
 	private JTextField userText;
 	private Map<String, Playlist> playlistMap = new HashMap<String, Playlist>();
 	private PlaylistViewer viewer;
 	private JList<String> playlistList;
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					HomeView frame = new HomeView();
-					frame.setLocation(0, 0);
-					frame.setSize(1280, 730);
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
-
-	/**
-	 * Create the frame.
-	 */
+	
 	public HomeView() {
-		try {
-			playingWindow = new PlayingWindow();
-		} catch (Exception e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
+		
 
 		viewer = new PlaylistViewer();
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 943, 624);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(new BorderLayout(0, 0));
-		setContentPane(contentPane);
+		setBorder(new EmptyBorder(5, 5, 5, 5));
+		setLayout(new BorderLayout(0, 0));
 
 		JPanel panel = new JPanel();
-		contentPane.add(panel, BorderLayout.SOUTH);
+		add(panel, BorderLayout.SOUTH);
 		panel.setLayout(new GridLayout(0, 1, 0, 0));
 
 		userText = new JTextField();
@@ -94,7 +64,7 @@ public class HomeView extends JFrame {
 		addPlaylistBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if (playlistMap.containsKey(userText.getText()))
-					JOptionPane.showMessageDialog(contentPane, "Playlist already exists, choose another name");
+					JOptionPane.showMessageDialog(getHomeView(), "Playlist already exists, choose another name");
 				else {
 					Playlist p = new Playlist(userText.getText());// take string from another frame as the playlist name
 					playlistMap.put(userText.getText(), p);
@@ -105,10 +75,10 @@ public class HomeView extends JFrame {
 
 		JLabel lblNewLabel = new JLabel("Playlists");
 		lblNewLabel.setFont(new Font("Tahoma", Font.BOLD, 20));
-		contentPane.add(lblNewLabel, BorderLayout.NORTH);
+		add(lblNewLabel, BorderLayout.NORTH);
 
 		JPanel panel_2 = new JPanel();
-		contentPane.add(panel_2, BorderLayout.CENTER);
+		add(panel_2, BorderLayout.CENTER);
 		panel_2.setLayout(new GridLayout(0, 1, 0, 0));
 
 		JList<String> playlistList = new JList<String>(listModel);
@@ -118,8 +88,12 @@ public class HomeView extends JFrame {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				viewer.updateTo(playlistMap.get(playlistList.getSelectedValue()));
-				viewer.setVisible(true);
+				//setVisible(false);
 			}
 		});
+	}
+	
+	public JPanel getHomeView() {
+		return this;
 	}
 }
