@@ -1,4 +1,4 @@
-
-public enum Metadata {
+public enum Metadata
+{
 	TITLE, ARTIST, ALBUM
 }
