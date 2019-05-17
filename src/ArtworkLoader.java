@@ -17,7 +17,7 @@ public class ArtworkLoader {
 	}
 	
 	private void generateLoader() throws Exception {
-		File artworkSpreadsheet = new File("/Users/frcprogramming/Documents/songsv2.xlsx");
+		File artworkSpreadsheet = new File("songsv2.xlsx");
 		XSSFWorkbook workbook = new XSSFWorkbook(artworkSpreadsheet);
 		XSSFSheet sheet = workbook.getSheetAt(1);
 		

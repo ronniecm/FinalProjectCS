@@ -11,13 +11,14 @@ public class PlayingWindow extends JPanel {
 	private JLabel timeLabel;
 	private JButton playPauseBtn;
 	private JButton albumArtwork;
-	private Database d = new Database();
+	public static Database d = new Database();
 	private ArrayList<Song> queue = new ArrayList<Song>();
-	private int currentSongIndex = 0;
+	private int currentSongIndex;
 	private Song currentSong = null;
 	private MarqueePanel mp = new MarqueePanel(new Song("", "", "", "").toString(), 15);
 	private boolean previousPressed = false;
 	private boolean isPaused = false;
+	private JButton nextBtn;
 
 	/**
 	 * Launch the application.
@@ -124,7 +125,7 @@ public class PlayingWindow extends JPanel {
 		});
 		panel.add(playPauseBtn);
 		
-		JButton nextBtn = new JButton("Next");
+		nextBtn = new JButton("Next: " + (queue.isEmpty() ? "Random" : queue.get(currentSongIndex+1).getInfo(Metadata.TITLE)));
 		nextBtn.addActionListener(new ActionListener() {
 			
 			@Override
@@ -200,14 +201,22 @@ public class PlayingWindow extends JPanel {
 	}
 	
 	private void next() {
+		System.out.println(queue);
 		currentSong.stop();
 		
-		if(queue.isEmpty()) {
+		if(currentSongIndex+1 > queue.size()-1) {
 			currentSong = d.getRandomSong();
 		} else {
-			currentSongIndex++;
+			if(queue.size() == 1)
+				currentSongIndex = 0;
+			else
+				currentSongIndex++;
+			
+			System.out.println(queue.size());
+			
 			if(currentSongIndex > queue.size() - 1)
 				currentSongIndex = 0;
+			
 			currentSong = queue.get(currentSongIndex);
 		}
 		
@@ -229,6 +238,8 @@ public class PlayingWindow extends JPanel {
 		int g = (int)(Math.random() * 256);
 		int b = (int)(Math.random() * 256);
 		panel_1.setBackground(new Color(r, g, b));
+		System.out.println("index: " + currentSongIndex);
+		nextBtn.setText("Next: " + (currentSongIndex+1 > queue.size()-1 ? "Random" : queue.get(currentSongIndex+1).getInfo(Metadata.TITLE)));
 	}
 	
 	private void playPause() {
@@ -244,7 +255,12 @@ public class PlayingWindow extends JPanel {
 	}
 	
 	public void addToQueue(Song s) {
-		queue.add(s);
+		if(currentSongIndex+1 > queue.size()-1) {
+			queue.add(s);
+			nextBtn.setText("Next: " + s.getInfo(Metadata.TITLE));
+		} else {
+			queue.add(s);
+		}
 	}
 	
 	public void removeFromQueue(Song s) {

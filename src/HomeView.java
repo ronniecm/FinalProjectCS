@@ -88,6 +88,7 @@ public class HomeView extends JPanel {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				viewer.updateTo(playlistMap.get(playlistList.getSelectedValue()));
+				Main.app.updatePlaylistViewer(playlistMap.get(playlistList.getSelectedValue()));
 				//setVisible(false);
 			}
 		});

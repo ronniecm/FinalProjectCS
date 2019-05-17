@@ -20,7 +20,7 @@ public class Database {
 	}
 	
 	private void generateDatabase() throws Exception {
-		File file = new File("/Users/frcprogramming/Documents/songsv2.xlsx");
+		File file = new File("songsv2.xlsx");
 		
 		XSSFWorkbook songSpreadsheet = new XSSFWorkbook(file);
 		XSSFSheet sheet = songSpreadsheet.getSheetAt(0);

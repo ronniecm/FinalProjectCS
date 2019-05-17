@@ -9,7 +9,6 @@ public class PlaylistViewer extends JPanel {
 	private JButton removeBtn, backBtn, addBtn;
 	private JList<String> databaseList, playList;
 	private DefaultListModel<String> listModel = new DefaultListModel<String>();
-	private static Database d = new Database();
 	private Playlist m_playlist;
 	
 	public PlaylistViewer() {
@@ -36,7 +35,7 @@ public class PlaylistViewer extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				String selectedsong = playList.getSelectedValue();
 				String title = selectedsong.substring(0, selectedsong.indexOf(" by"));
-				m_playlist.removeSong(d.getSong(title));
+				m_playlist.removeSong(PlayingWindow.d.getSong(title));
 				listModel.remove(playList.getSelectedIndex());
 			}
 		});
@@ -47,7 +46,7 @@ public class PlaylistViewer extends JPanel {
 		backBtn.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				closeWindow();
+				Main.app.goHome();
 			}
 		});
 		btnPanel.add(backBtn);
@@ -59,7 +58,7 @@ public class PlaylistViewer extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				String selectedSong = databaseList.getSelectedValue();
 				String title = selectedSong.substring(0, selectedSong.indexOf(" by"));
-				m_playlist.addSong(d.getSong(title));
+				m_playlist.addSong(PlayingWindow.d.getSong(title));
 				listModel.addElement(databaseList.getSelectedValue());
 			}
 		});
@@ -82,17 +81,38 @@ public class PlaylistViewer extends JPanel {
 					public void actionPerformed(ActionEvent e) {
 						String selectedSong = playList.getSelectedValue();
 						String title = selectedSong.substring(0, selectedSong.indexOf(" by"));
-						/*
+						
 						try {
-							HomeView.playingWindow.updateWindow(d.getSong(title));
+							Main.app.playSong(PlayingWindow.d.getSong(title));
 						} catch (Exception ex) {
 							ex.getStackTrace();
 						}
-						*/
+						
 					}
 				});
 				JMenuItem addToQueue = new JMenuItem("Add to Queue");
+				addToQueue.addActionListener(new ActionListener() {
+					
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						String selectedSong = playList.getSelectedValue();
+						String title = selectedSong.substring(0, selectedSong.indexOf(" by"));
+						Main.app.addToQueue(PlayingWindow.d.getSong(title));
+						System.out.println("added: " + PlayingWindow.d.getSong(title) + " to playlist");
+						
+					}
+				});
 				JMenuItem removeFromPlaylist = new JMenuItem("Remove from Playlist");
+				removeFromPlaylist.addActionListener(new ActionListener() {
+					
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						String selectedsong = playList.getSelectedValue();
+						String title = selectedsong.substring(0, selectedsong.indexOf(" by"));
+						m_playlist.removeSong(PlayingWindow.d.getSong(title));
+						listModel.remove(playList.getSelectedIndex());
+					}
+				});
 				menu.add(play);
 				menu.add(addToQueue);
 				menu.add(removeFromPlaylist);
@@ -108,7 +128,7 @@ public class PlaylistViewer extends JPanel {
 		//databaseList used to view what songs are available to use
 		databaseList = new JList<String>();
 		databaseList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-		databaseList.setListData(d.toArray());
+		databaseList.setListData(PlayingWindow.d.toArray());
 		scrollPane.setViewportView(databaseList);
 	}
 	
