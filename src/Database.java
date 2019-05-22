@@ -1,43 +1,49 @@
 import java.io.File;
 import java.util.*;
 
-import org.apache.poi.ss.usermodel.Cell;
+/*import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;*/
 
 
 public class Database {
-	private ArrayList<Song> db = new ArrayList<Song>();
+	//private ArrayList<Song> db = new ArrayList<Song>();
 	private Map<String, Song> db2 = new HashMap<String, Song>();
-
+	
 	public Database() {
-		try {
+		try
+		{
 			generateDatabase();
-		} catch(Exception e) {
-			System.out.println("You have a " + e.getClass());
+		} catch (Exception e)
+		{
+			// TODO Auto-generated catch block
+			e.printStackTrace();
 		}
 	}
 	
 	private void generateDatabase() throws Exception {
-		File file = new File("songsv2.xlsx");
+		Scanner infile = new Scanner(new File("songs.txt"));
 		
-		XSSFWorkbook songSpreadsheet = new XSSFWorkbook(file);
-		XSSFSheet sheet = songSpreadsheet.getSheetAt(0);
-		
-		int j = 0;
-		for(Row row : sheet) {
-			String[] data = new String[4];
-			int i = 0;
-			for(Cell c : row)
-				data[i++] = c.getStringCellValue();
-			
-			Song s = new Song(data[0], data[1], data[2], data[3]);
-			db2.put(data[0], s);
-			j++;
+		String temp;
+		String title;
+		String artist;
+		String album;
+		String path;
+		for(int k = 0; k < db2.keySet().size(); k++)
+		{
+			temp = infile.nextLine();
+			title = temp.substring(0, temp.indexOf("	"));
+			temp = temp.substring(temp.indexOf("	"));
+			artist = temp.substring(0, temp.indexOf("	"));
+			temp = temp.substring(temp.indexOf("	"));
+			album = temp.substring(0, temp.indexOf("	"));
+			temp = temp.substring(temp.indexOf("	"));
+			path = temp.substring(0, temp.indexOf("	"));		
+			//db.add(new Song(title, artist, album, path));
+			db2.put(artist, new Song(title, artist, album, path));
 		}
-		
-		songSpreadsheet.close();
+		infile.close();
 	}
 	
 	public Song getSong(String key) {

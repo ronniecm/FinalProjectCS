@@ -1,9 +1,11 @@
 import java.util.*;
 import java.io.*;
 
+/*
 import org.apache.poi.ss.usermodel.Row;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
+*/
 
 public class ArtworkLoader {
 	private Map<String, String> filepathMap = new HashMap<String, String>();
@@ -17,18 +19,17 @@ public class ArtworkLoader {
 	}
 	
 	private void generateLoader() throws Exception {
-		File artworkSpreadsheet = new File("songsv2.xlsx");
-		XSSFWorkbook workbook = new XSSFWorkbook(artworkSpreadsheet);
-		XSSFSheet sheet = workbook.getSheetAt(1);
+		Scanner infile = new Scanner(new File("songs.txt"));
 		
-		for(Row row : sheet) {
-			String key = row.getCell(0).getStringCellValue();
-			String value = row.getCell(1).getStringCellValue();
-			
-			filepathMap.put(key, value);
+		String temp;
+		while(infile.hasNextLine())
+		{
+			temp = infile.nextLine();
+			filepathMap.put(temp.substring(0, temp.indexOf("	")), 
+							temp.substring(temp.indexOf("/")));
 		}
 		
-		workbook.close();
+		infile.close();
 	}
 	
 	public String loadFilepath(String songName) {
