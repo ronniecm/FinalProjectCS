@@ -1,15 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
 	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="lib" path="commons-collections4-4.2.jar"/>
-	<classpathentry kind="lib" path="commons-compress-1.18.jar"/>
-	<classpathentry kind="lib" path="poi-4.0.1.jar"/>
-	<classpathentry kind="lib" path="poi-examples-4.0.1.jar"/>
-	<classpathentry kind="lib" path="poi-excelant-4.0.1.jar"/>
-	<classpathentry kind="lib" path="poi-ooxml-4.0.1.jar"/>
-	<classpathentry kind="lib" path="poi-ooxml-schemas-4.0.1.jar"/>
-	<classpathentry kind="lib" path="poi-scratchpad-4.0.1.jar"/>
-	<classpathentry kind="lib" path="xmlbeans-3.0.2.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

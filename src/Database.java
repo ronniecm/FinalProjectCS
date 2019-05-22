@@ -1,86 +1,76 @@
-import java.io.File;
+import java.io.*;
 import java.util.*;
 
-/*import org.apache.poi.ss.usermodel.Cell;
-import org.apache.poi.ss.usermodel.Row;
-import org.apache.poi.xssf.usermodel.XSSFSheet;
-import org.apache.poi.xssf.usermodel.XSSFWorkbook;*/
-
-
 public class Database {
-	//private ArrayList<Song> db = new ArrayList<Song>();
-	private Map<String, Song> db2 = new HashMap<String, Song>();
-	
+	private Map<String, Song> database = new TreeMap<String, Song>();
+
 	public Database() {
-		try
-		{
+		try {
 			generateDatabase();
-		} catch (Exception e)
-		{
+		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			e.getStackTrace();
 		}
 	}
-	
-	private void generateDatabase() throws Exception {
+
+	private void generateDatabase() throws FileNotFoundException {
 		Scanner infile = new Scanner(new File("songs.txt"));
-		
-		String temp;
-		String title;
-		String artist;
-		String album;
-		String path;
-		for(int k = 0; k < db2.keySet().size(); k++)
-		{
-			temp = infile.nextLine();
-			title = temp.substring(0, temp.indexOf("	"));
-			temp = temp.substring(temp.indexOf("	"));
-			artist = temp.substring(0, temp.indexOf("	"));
-			temp = temp.substring(temp.indexOf("	"));
-			album = temp.substring(0, temp.indexOf("	"));
-			temp = temp.substring(temp.indexOf("	"));
-			path = temp.substring(0, temp.indexOf("	"));		
-			//db.add(new Song(title, artist, album, path));
-			db2.put(artist, new Song(title, artist, album, path));
+		/*
+		String title = "";
+		String artist = "";
+		String album = "";
+		String path = "";
+		*/
+		while (infile.hasNext()) {
+			String line = infile.nextLine();
+			String title = line.substring(0, line.indexOf("	"));
+			line = line.substring(line.indexOf("	") + 1);
+			String artist = line.substring(0, line.indexOf("	"));
+			line = line.substring(line.indexOf("	") + 1);
+			String album = line.substring(0, line.indexOf("	"));
+			line = line.substring(line.indexOf("	") + 1);
+			String path = line;
+			database.put(title, new Song(title, artist, album, path));
 		}
 		infile.close();
 	}
-	
+
 	public Song getSong(String key) {
-		return db2.get(key);
+		return database.get(key);
 	}
-	
+
 	public void playDB() throws Exception {
-		Song s = db2.get("Bohemian Rhapsody");
+		Song s = database.get("Bohemian Rhapsody");
 		s.playFromStart();
 		Thread.sleep(s.getRunningTimeInSeconds() * 1000);
 	}
+
 	public String toString() {
 		String result = "";
-		Set<String> keySet = db2.keySet();
-		for(String key : keySet)
-			result += db2.get(key) + "\n";
-		
+		Set<String> keySet = database.keySet();
+		for (String key : keySet)
+			result += database.get(key) + "\n";
+
 		return result;
 	}
-	
+
 	public Set<String> getNames() {
-		return db2.keySet();
+		return database.keySet();
 	}
-	
+
 	public String[] toArray() {
-		String[] songs = new String[db2.size()];
-		Set<String> keySet = db2.keySet();
+		String[] songs = new String[database.size()];
+		Set<String> keySet = database.keySet();
 		int i = 0;
-		for(String key : keySet)
-			songs[i++] = db2.get(key).toString();
+		for (String key : keySet)
+			songs[i++] = database.get(key).toString();
 		return songs;
 	}
-	
+
 	public Song getRandomSong() {
-		Set<String> keySet = db2.keySet();
+		Set<String> keySet = database.keySet();
 		Object[] keySetArray = keySet.toArray();
-		int randomInd = (int)(Math.random() * keySetArray.length);
-		return db2.get(keySetArray[randomInd]);
+		int randomInd = (int) (Math.random() * keySetArray.length);
+		return database.get(keySetArray[randomInd]);
 	}
 }

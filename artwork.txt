@@ -1,0 +1,28 @@
+A Night at the Opera	/Users/frcprogramming/Downloads/songs/NightAtTheOpera.jpg
+News of the World	/Users/frcprogramming/Downloads/songs/Queen_News_Of_The_World.jpg
+The Game	/Users/frcprogramming/Downloads/songs/TheGame.jpg
+21	/Users/frcprogramming/Downloads/songs/21cover.jpg
+25	/Users/frcprogramming/Downloads/songs/25cover.jpg
+24K Magic	/Users/frcprogramming/Downloads/songs/24kmagic.jpg
+American Teen	/Users/frcprogramming/Downloads/songs/americanteen.jpg
+Bad	/Users/frcprogramming/Downloads/songs/bad.jpg
+Divide	/Users/frcprogramming/Downloads/songs/divide.jpg
+Doo-Wops & Hooligans	/Users/frcprogramming/Downloads/songs/doowops.jpg
+Evolve	/Users/frcprogramming/Downloads/songs/evolve.jpg
+Help!	/Users/frcprogramming/Downloads/songs/help.jpg
+Hey Jude (Single)	/Users/frcprogramming/Downloads/songs/heyjude.jpg
+Hot Space	/Users/frcprogramming/Downloads/songs/HotSpace.jpg
+In the Lonely Hour	/Users/frcprogramming/Downloads/songs/inthelonelyhour.jpg
+Love, Simon(Original Motion Picture Soundtrack)	/Users/frcprogramming/Downloads/songs/lovesimon.jpg
+Meet the Beatles!	/Users/frcprogramming/Downloads/songs/Meet_the_Beatles.jpg
+Night Visions	/Users/frcprogramming/Downloads/songs/Night_Visions_Album_Cover.jpg
+Overexposed	/Users/frcprogramming/Downloads/songs/overexposed.jpg
+Red Pill Blues	/Users/frcprogramming/Downloads/songs/redpillblues.jpg
+Revolver	/Users/frcprogramming/Downloads/songs/revolver.jpg
+Suncity	/Users/frcprogramming/Downloads/songs/suncity.jpg
+The Thrill of It All	/Users/frcprogramming/Downloads/songs/thrill of it all.jpg
+Thriller	/Users/frcprogramming/Downloads/songs/thriller.jpg
+Twist and Shout	/Users/frcprogramming/Downloads/songs/twistandshout.jpg
+Uptown Funk	/Users/frcprogramming/Downloads/songs/uptownfunk.jpg
+V	/Users/frcprogramming/Downloads/songs/v.jpg
+x	/Users/frcprogramming/Downloads/songs/x.jpg
