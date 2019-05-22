@@ -23,26 +23,6 @@ public class PlayingWindow extends JPanel {
 	private JButton previousBtn;
 
 	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					PlayingWindow frame = new PlayingWindow();
-					frame.setLocation(0, 0);
-					frame.setSize(1280, 730);
-					// frame.setVisible(true);
-
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-
-		});
-	}
-
-	/**
 	 * Create the frame.
 	 * 
 	 * @throws Exception
