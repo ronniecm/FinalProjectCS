@@ -1,8 +1,8 @@
 A Night at the Opera	/Users/frcprogramming/Downloads/songs/NightAtTheOpera.jpg
 News of the World	/Users/frcprogramming/Downloads/songs/Queen_News_Of_The_World.jpg
 The Game	/Users/frcprogramming/Downloads/songs/TheGame.jpg
-21	/Users/frcprogramming/Downloads/songs/21cover.jpg
-25	/Users/frcprogramming/Downloads/songs/25cover.jpg
+"21"	/Users/frcprogramming/Downloads/songs/21cover.jpg
+"25"	/Users/frcprogramming/Downloads/songs/25cover.jpg
 24K Magic	/Users/frcprogramming/Downloads/songs/24kmagic.jpg
 American Teen	/Users/frcprogramming/Downloads/songs/americanteen.jpg
 Bad	/Users/frcprogramming/Downloads/songs/bad.jpg

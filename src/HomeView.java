@@ -14,8 +14,6 @@ public class HomeView extends JPanel {
 
 	
 	public HomeView() {
-		
-
 		viewer = new PlaylistViewer();
 		setBorder(new EmptyBorder(5, 5, 5, 5));
 		setLayout(new BorderLayout(0, 0));
@@ -60,6 +58,7 @@ public class HomeView extends JPanel {
 				listModel.remove(playlistList.getSelectedIndex());
 			}
 		});
+		
 		panel_1.add(removePlaylistBtn);
 		addPlaylistBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -69,6 +68,7 @@ public class HomeView extends JPanel {
 					Playlist p = new Playlist(userText.getText());// take string from another frame as the playlist name
 					playlistMap.put(userText.getText(), p);
 					listModel.insertElementAt(p.getName(), 0);
+					userText.setText("Enter playlist name");
 				}
 			}
 		});

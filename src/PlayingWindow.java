@@ -21,6 +21,7 @@ public class PlayingWindow extends JPanel {
 	private boolean isPaused = false;
 	private JButton nextBtn = new JButton("Next: Random");
 	private JButton previousBtn;
+	private boolean isSliderPressed = false;
 
 	/**
 	 * Create the frame.
@@ -50,8 +51,10 @@ public class PlayingWindow extends JPanel {
 		panel_1.add(mp, BorderLayout.NORTH);
 
 		albumArtwork = new JButton();
+		albumArtwork.setBorderPainted(false);
+		albumArtwork.setBackground(panel_1.getBackground());
 		albumArtwork.setIcon(new ImageIcon(currentSong.getArtworkPath()));
-		albumArtwork.setBounds(489, 184, 300, 300);
+		albumArtwork.setBounds(489, 184, 300,300);
 		panel_1.add(albumArtwork);
 
 		slider = new JSlider(0, currentSong.getRunningTimeInSeconds());
@@ -97,6 +100,9 @@ public class PlayingWindow extends JPanel {
 					slider.setValue(0);
 					slider.setMaximum(currentSong.getRunningTimeInSeconds());
 					albumArtwork.setIcon(new ImageIcon(currentSong.getArtworkPath()));
+					int r = (int)(Math.random() * 256), g = (int)(Math.random() * 256), b = (int)(Math.random() * 256);
+					panel_1.setBackground(new Color(r, g, b));
+					albumArtwork.setBackground(panel_1.getBackground());
 					previousPressed = false;
 					nextBtn.setText("Next: " + queue.get(0));
 					previousBtn.setText("Previous: " + (prev.isEmpty() ? "None" : prev.peek()));
@@ -123,6 +129,17 @@ public class PlayingWindow extends JPanel {
 		});
 		panel.add(nextBtn);
 
+		slider.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				isSliderPressed = true;
+			}
+			
+			@Override
+			public void mouseReleased(MouseEvent e) {
+				isSliderPressed = false;
+			}
+		});
 		slider.addMouseMotionListener(new MouseMotionListener() {
 
 			@Override
@@ -175,7 +192,7 @@ public class PlayingWindow extends JPanel {
 			@Override
 			public void run() {
 				while (true) {
-					if (currentSong.isOver() && !previousPressed) {
+					if (currentSong.isOver() && !previousPressed && !isSliderPressed) {
 						System.out.println("auto changing song");
 						next();
 					}
@@ -224,11 +241,12 @@ public class PlayingWindow extends JPanel {
 		slider.setMaximum(currentSong.getRunningTimeInSeconds());
 		System.out.println(slider.getMaximum());
 		albumArtwork.setIcon(new ImageIcon(currentSong.getArtworkPath()));
-
+		
 		int r = (int) (Math.random() * 256);
 		int g = (int) (Math.random() * 256);
 		int b = (int) (Math.random() * 256);
 		panel_1.setBackground(new Color(r, g, b));
+		albumArtwork.setBackground(panel_1.getBackground());
 		System.out.println("index: " + currentSongIndex);
 		nextBtn.setText("Next: " + (queue.isEmpty() ? "Random" : queue.get(0)));
 		previousBtn.setText("Previous: " + prev.peek());
