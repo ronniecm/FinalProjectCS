@@ -1,48 +1,48 @@
-24K Magic	Bruno Mars	24K Magic	/Users/frcprogramming/Downloads/songs/24K Magic audio.wav
-Another One Bites the Dust	Queen	The Game	/Users/frcprogramming/Downloads/songs/Another one Bites the Dust audio.wav
-Beat It	Michael Jackson	Thriller	/Users/frcprogramming/Downloads/songs/Beat It.wav
-Believer	Imagine Dragons	Evolve	/Users/frcprogramming/Downloads/songs/Believer audio.wav
-Better	Khalid	Suncity	/Users/frcprogramming/Downloads/songs/Better audio.wav
-Billie Jean	Michael Jackson	Thriller	/Users/frcprogramming/Downloads/songs/Billie Jean.wav
-Bohemian Rhapsody	Queen	A Night at the Opera	/Users/frcprogramming/Downloads/songs/Bohemian Rhapsody audio.wav
-Castle on the Hill	Ed Sheeran	Divide	/Users/frcprogramming/Downloads/songs/Castle on the Hill audio.wav
-Demons	Imagine Dragons	Evolve	/Users/frcprogramming/Downloads/songs/Demons audio.wav
-Dirty Diana	Michael Jackson	Bad	/Users/frcprogramming/Downloads/songs/Dirty Diana.wav
-Girls Like You	Maroon 5	Red Pill Blues	/Users/frcprogramming/Downloads/songs/Girls Like You.wav
-Grenade	Bruno Mars	Doo-Wops & Hooligans	/Users/frcprogramming/Downloads/songs/Grenade audio.wav
-Hello	Adele	"25"	/Users/frcprogramming/Downloads/songs/Hello.wav
-Hey Jude	The Beatles	Hey Jude (Single)	/Users/frcprogramming/Downloads/songs/HeyJudeAudio.wav
-I Want to Hold Your Hand	The Beatles	Meet the Beatles!	/Users/frcprogramming/Downloads/songs/IWantToHoldYourHandAudio.wav
-I'm Not the Only One	Sam Smith	In the Lonely Hour	/Users/frcprogramming/Downloads/songs/I'm Not The Only One.wav
-Just the Way You Are	Bruno Mars	Doo-Wops & Hooligans	/Users/frcprogramming/Downloads/songs/Just the Way You Are audio.wav
-Location	Khalid	American Teen	/Users/frcprogramming/Downloads/songs/Location audio.wav
-Love Lies	Khalid	Love, Simon(Original Motion Picture Soundtrack)	/Users/frcprogramming/Downloads/songs/Love Lies audio.wav
-Maps	Maroon 5	V	/Users/frcprogramming/Downloads/songs/Maroon 5 - Maps (Audio).wav
-On Top of the World	Imagine Dragons	Night Visions	/Users/frcprogramming/Downloads/songs/On Top of the World audio.wav
-One More Night	Maroon 5	Overexposed	/Users/frcprogramming/Downloads/songs/One More Night.wav
-Payphone (E)	Maroon 5	Overexposed	/Users/frcprogramming/Downloads/songs/Payphone.wav
-Perfect	Ed Sheeran	Divide	/Users/frcprogramming/Downloads/songs/Perfect audio.wav
-Photograph	Ed Sheeran	x	/Users/frcprogramming/Downloads/songs/Photograph-Ed Sheeran (Audio).wav
-Radioactive	Imagine Dragons	Night Visions	/Users/frcprogramming/Downloads/songs/Radioactive audio.wav
-Rolling in the Deep	Adele	"21"	/Users/frcprogramming/Downloads/songs/Rolling in the Deep.wav
-Rumour Has It	Adele	"21"	/Users/frcprogramming/Downloads/songs/RumourHasIt.wav
-Saturday Nights	Khalid	Suncity	/Users/frcprogramming/Downloads/songs/Saturday Nights audio.wav
-Set Fire to the Rain	Adele	"21"	/Users/frcprogramming/Downloads/songs/Set Fire to the Rain.wav
-Shape of You	Ed Sheeran	Divide	/Users/frcprogramming/Downloads/songs/Shape of You audio.wav
-She Loves You	The Beatles	Twist and Shout	/Users/frcprogramming/Downloads/songs/SheLovesYou.wav
-Smooth Criminal	Michael Jackson	Bad	/Users/frcprogramming/Downloads/songs/Smooth Criminal (2012 Remaster).wav
-Someone Like You	Adele	"21"	/Users/frcprogramming/Downloads/songs/SomeoneLikeYou.wav
-Stay With Me	Sam Smith	In the Lonely Hour	/Users/frcprogramming/Downloads/songs/Stay With Me.wav
-Sugar	Maroon 5	V	/Users/frcprogramming/Downloads/songs/Sugar.wav
-That's What I Like	Bruno Mars	24K Magic	/Users/frcprogramming/Downloads/songs/Thats What I Like audio.wav
-Thinking Out Loud	Ed Sheeran	x	/Users/frcprogramming/Downloads/songs/Thinking Out Loud audio.wav
-Thriller	Michael Jackson	Thriller	/Users/frcprogramming/Downloads/songs/Thriller.wav
-Thunder	Imagine Dragons	Night Visions	/Users/frcprogramming/Downloads/songs/Thunder audio.wav
-Too Good at Goodbyes	Sam Smith	The Thrill of It All	/Users/frcprogramming/Downloads/songs/TooGoodAtGoodByes.wav
-Under Pressure	Queen	Hot Space	/Users/frcprogramming/Downloads/songs/Under Pressure audio.wav
-Uptown Funk	Bruno Mars	Uptown Funk	/Users/frcprogramming/Downloads/songs/Uptown Funk audio.wav
-We Are the Champions	Queen	News of the World	/Users/frcprogramming/Downloads/songs/We are the Champions audio.wav
-We Will Rock You	Queen	News of the World	/Users/frcprogramming/Downloads/songs/We Will Rock You audio.wav
-Yellow Submarine	The Beatles	Revolver	/Users/frcprogramming/Downloads/songs/YellowSubmarine.wav
-Yesterday	The Beatles	Help!	/Users/frcprogramming/Downloads/songs/Yesterday.wav
-Young Dumb & Broke	Khalid	American Teen	/Users/frcprogramming/Downloads/songs/Young Dumb and Broke audio.wav
+24K Magic	Bruno Mars	24K Magic	C:\Users\zwols\Desktop\High School\12th Grade\Computer Science AB\FinalProjectCS\Song Folder24K Magic audio.wav
+Another One Bites the Dust	Queen	The Game	C:\Users\zwols\Desktop\High School\12th Grade\Computer Science AB\FinalProjectCS\Song FolderAnother one Bites the Dust audio.wav
+Beat It	Michael Jackson	Thriller	C:\Users\zwols\Desktop\High School\12th Grade\Computer Science AB\FinalProjectCS\Song FolderBeat It.wav
+Believer	Imagine Dragons	Evolve	C:\Users\zwols\Desktop\High School\12th Grade\Computer Science AB\FinalProjectCS\Song FolderBeliever audio.wav
+Better	Khalid	Suncity	C:\Users\zwols\Desktop\High School\12th Grade\Computer Science AB\FinalProjectCS\Song FolderBetter audio.wav
+Billie Jean	Michael Jackson	Thriller	C:\Users\zwols\Desktop\High School\12th Grade\Computer Science AB\FinalProjectCS\Song FolderBillie Jean.wav
+Bohemian Rhapsody	Queen	A Night at the Opera	C:\Users\zwols\Desktop\High School\12th Grade\Computer Science AB\FinalProjectCS\Song FolderBohemian Rhapsody audio.wav
+Castle on the Hill	Ed Sheeran	Divide	C:\Users\zwols\Desktop\High School\12th Grade\Computer Science AB\FinalProjectCS\Song FolderCastle on the Hill audio.wav
+Demons	Imagine Dragons	Evolve	C:\Users\zwols\Desktop\High School\12th Grade\Computer Science AB\FinalProjectCS\Song FolderDemons audio.wav
+Dirty Diana	Michael Jackson	Bad	C:\Users\zwols\Desktop\High School\12th Grade\Computer Science AB\FinalProjectCS\Song FolderDirty Diana.wav
+Girls Like You	Maroon 5	Red Pill Blues	C:\Users\zwols\Desktop\High School\12th Grade\Computer Science AB\FinalProjectCS\Song FolderGirls Like You.wav
+Grenade	Bruno Mars	Doo-Wops & Hooligans	C:\Users\zwols\Desktop\High School\12th Grade\Computer Science AB\FinalProjectCS\Song FolderGrenade audio.wav
+Hello	Adele	"25"	C:\Users\zwols\Desktop\High School\12th Grade\Computer Science AB\FinalProjectCS\Song FolderHello.wav
+Hey Jude	The Beatles	Hey Jude (Single)	C:\Users\zwols\Desktop\High School\12th Grade\Computer Science AB\FinalProjectCS\Song FolderHeyJudeAudio.wav
+I Want to Hold Your Hand	The Beatles	Meet the Beatles!	C:\Users\zwols\Desktop\High School\12th Grade\Computer Science AB\FinalProjectCS\Song FolderIWantToHoldYourHandAudio.wav
+I'm Not the Only One	Sam Smith	In the Lonely Hour	C:\Users\zwols\Desktop\High School\12th Grade\Computer Science AB\FinalProjectCS\Song FolderI'm Not The Only One.wav
+Just the Way You Are	Bruno Mars	Doo-Wops & Hooligans	C:\Users\zwols\Desktop\High School\12th Grade\Computer Science AB\FinalProjectCS\Song FolderJust the Way You Are audio.wav
+Location	Khalid	American Teen	C:\Users\zwols\Desktop\High School\12th Grade\Computer Science AB\FinalProjectCS\Song FolderLocation audio.wav
+Love Lies	Khalid	Love, Simon(Original Motion Picture Soundtrack)	C:\Users\zwols\Desktop\High School\12th Grade\Computer Science AB\FinalProjectCS\Song FolderLove Lies audio.wav
+Maps	Maroon 5	V	C:\Users\zwols\Desktop\High School\12th Grade\Computer Science AB\FinalProjectCS\Song FolderMaroon 5 - Maps (Audio).wav
+On Top of the World	Imagine Dragons	Night Visions	C:\Users\zwols\Desktop\High School\12th Grade\Computer Science AB\FinalProjectCS\Song FolderOn Top of the World audio.wav
+One More Night	Maroon 5	Overexposed	C:\Users\zwols\Desktop\High School\12th Grade\Computer Science AB\FinalProjectCS\Song FolderOne More Night.wav
+Payphone (E)	Maroon 5	Overexposed	C:\Users\zwols\Desktop\High School\12th Grade\Computer Science AB\FinalProjectCS\Song FolderPayphone.wav
+Perfect	Ed Sheeran	Divide	C:\Users\zwols\Desktop\High School\12th Grade\Computer Science AB\FinalProjectCS\Song FolderPerfect audio.wav
+Photograph	Ed Sheeran	x	C:\Users\zwols\Desktop\High School\12th Grade\Computer Science AB\FinalProjectCS\Song FolderPhotograph-Ed Sheeran (Audio).wav
+Radioactive	Imagine Dragons	Night Visions	C:\Users\zwols\Desktop\High School\12th Grade\Computer Science AB\FinalProjectCS\Song FolderRadioactive audio.wav
+Rolling in the Deep	Adele	"21"	C:\Users\zwols\Desktop\High School\12th Grade\Computer Science AB\FinalProjectCS\Song FolderRolling in the Deep.wav
+Rumour Has It	Adele	"21"	C:\Users\zwols\Desktop\High School\12th Grade\Computer Science AB\FinalProjectCS\Song FolderRumourHasIt.wav
+Saturday Nights	Khalid	Suncity	C:\Users\zwols\Desktop\High School\12th Grade\Computer Science AB\FinalProjectCS\Song FolderSaturday Nights audio.wav
+Set Fire to the Rain	Adele	"21"	C:\Users\zwols\Desktop\High School\12th Grade\Computer Science AB\FinalProjectCS\Song FolderSet Fire to the Rain.wav
+Shape of You	Ed Sheeran	Divide	C:\Users\zwols\Desktop\High School\12th Grade\Computer Science AB\FinalProjectCS\Song FolderShape of You audio.wav
+She Loves You	The Beatles	Twist and Shout	C:\Users\zwols\Desktop\High School\12th Grade\Computer Science AB\FinalProjectCS\Song FolderSheLovesYou.wav
+Smooth Criminal	Michael Jackson	Bad	C:\Users\zwols\Desktop\High School\12th Grade\Computer Science AB\FinalProjectCS\Song FolderSmooth Criminal (2012 Remaster).wav
+Someone Like You	Adele	"21"	C:\Users\zwols\Desktop\High School\12th Grade\Computer Science AB\FinalProjectCS\Song FolderSomeoneLikeYou.wav
+Stay With Me	Sam Smith	In the Lonely Hour	C:\Users\zwols\Desktop\High School\12th Grade\Computer Science AB\FinalProjectCS\Song FolderStay With Me.wav
+Sugar	Maroon 5	V	C:\Users\zwols\Desktop\High School\12th Grade\Computer Science AB\FinalProjectCS\Song FolderSugar.wav
+That's What I Like	Bruno Mars	24K Magic	C:\Users\zwols\Desktop\High School\12th Grade\Computer Science AB\FinalProjectCS\Song FolderThats What I Like audio.wav
+Thinking Out Loud	Ed Sheeran	x	C:\Users\zwols\Desktop\High School\12th Grade\Computer Science AB\FinalProjectCS\Song FolderThinking Out Loud audio.wav
+Thriller	Michael Jackson	Thriller	C:\Users\zwols\Desktop\High School\12th Grade\Computer Science AB\FinalProjectCS\Song FolderThriller.wav
+Thunder	Imagine Dragons	Night Visions	C:\Users\zwols\Desktop\High School\12th Grade\Computer Science AB\FinalProjectCS\Song FolderThunder audio.wav
+Too Good at Goodbyes	Sam Smith	The Thrill of It All	C:\Users\zwols\Desktop\High School\12th Grade\Computer Science AB\FinalProjectCS\Song FolderTooGoodAtGoodByes.wav
+Under Pressure	Queen	Hot Space	C:\Users\zwols\Desktop\High School\12th Grade\Computer Science AB\FinalProjectCS\Song FolderUnder Pressure audio.wav
+Uptown Funk	Bruno Mars	Uptown Funk	C:\Users\zwols\Desktop\High School\12th Grade\Computer Science AB\FinalProjectCS\Song FolderUptown Funk audio.wav
+We Are the Champions	Queen	News of the World	C:\Users\zwols\Desktop\High School\12th Grade\Computer Science AB\FinalProjectCS\Song FolderWe are the Champions audio.wav
+We Will Rock You	Queen	News of the World	C:\Users\zwols\Desktop\High School\12th Grade\Computer Science AB\FinalProjectCS\Song FolderWe Will Rock You audio.wav
+Yellow Submarine	The Beatles	Revolver	C:\Users\zwols\Desktop\High School\12th Grade\Computer Science AB\FinalProjectCS\Song FolderYellowSubmarine.wav
+Yesterday	The Beatles	Help!	C:\Users\zwols\Desktop\High School\12th Grade\Computer Science AB\FinalProjectCS\Song FolderYesterday.wav
+Young Dumb & Broke	Khalid	American Teen	C:\Users\zwols\Desktop\High School\12th Grade\Computer Science AB\FinalProjectCS\Song FolderYoung Dumb and Broke audio.wav
