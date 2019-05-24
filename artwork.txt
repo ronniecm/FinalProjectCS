@@ -1,28 +1,28 @@
-A Night at the Opera	/Users/frcprogramming/Downloads/songs/NightAtTheOpera.jpg
-News of the World	/Users/frcprogramming/Downloads/songs/Queen_News_Of_The_World.jpg
-The Game	/Users/frcprogramming/Downloads/songs/TheGame.jpg
-"21"	/Users/frcprogramming/Downloads/songs/21cover.jpg
-"25"	/Users/frcprogramming/Downloads/songs/25cover.jpg
-24K Magic	/Users/frcprogramming/Downloads/songs/24kmagic.jpg
-American Teen	/Users/frcprogramming/Downloads/songs/americanteen.jpg
-Bad	/Users/frcprogramming/Downloads/songs/bad.jpg
-Divide	/Users/frcprogramming/Downloads/songs/divide.jpg
-Doo-Wops & Hooligans	/Users/frcprogramming/Downloads/songs/doowops.jpg
-Evolve	/Users/frcprogramming/Downloads/songs/evolve.jpg
-Help!	/Users/frcprogramming/Downloads/songs/help.jpg
-Hey Jude (Single)	/Users/frcprogramming/Downloads/songs/heyjude.jpg
-Hot Space	/Users/frcprogramming/Downloads/songs/HotSpace.jpg
-In the Lonely Hour	/Users/frcprogramming/Downloads/songs/inthelonelyhour.jpg
-Love, Simon(Original Motion Picture Soundtrack)	/Users/frcprogramming/Downloads/songs/lovesimon.jpg
-Meet the Beatles!	/Users/frcprogramming/Downloads/songs/Meet_the_Beatles.jpg
-Night Visions	/Users/frcprogramming/Downloads/songs/Night_Visions_Album_Cover.jpg
-Overexposed	/Users/frcprogramming/Downloads/songs/overexposed.jpg
-Red Pill Blues	/Users/frcprogramming/Downloads/songs/redpillblues.jpg
-Revolver	/Users/frcprogramming/Downloads/songs/revolver.jpg
-Suncity	/Users/frcprogramming/Downloads/songs/suncity.jpg
-The Thrill of It All	/Users/frcprogramming/Downloads/songs/thrill of it all.jpg
-Thriller	/Users/frcprogramming/Downloads/songs/thriller.jpg
-Twist and Shout	/Users/frcprogramming/Downloads/songs/twistandshout.jpg
-Uptown Funk	/Users/frcprogramming/Downloads/songs/uptownfunk.jpg
-V	/Users/frcprogramming/Downloads/songs/v.jpg
-x	/Users/frcprogramming/Downloads/songs/x.jpg
+A Night at the Opera	C:/Users/zwols/Desktop/High School/12th Grade/Computer Science AB/FinalProjectCS/Song Folder/songs/NightAtTheOpera.jpg
+News of the World	C:/Users/zwols/Desktop/High School/12th Grade/Computer Science AB/FinalProjectCS/Song Folder/songs/Queen_News_Of_The_World.jpg
+The Game	C:/Users/zwols/Desktop/High School/12th Grade/Computer Science AB/FinalProjectCS/Song Folder/songs/TheGame.jpg
+"21"	C:/Users/zwols/Desktop/High School/12th Grade/Computer Science AB/FinalProjectCS/Song Folder/songs/21cover.jpg
+"25"	C:/Users/zwols/Desktop/High School/12th Grade/Computer Science AB/FinalProjectCS/Song Folder/songs/25cover.jpg
+24K Magic	C:/Users/zwols/Desktop/High School/12th Grade/Computer Science AB/FinalProjectCS/Song Folder/songs/24kmagic.jpg
+American Teen	C:/Users/zwols/Desktop/High School/12th Grade/Computer Science AB/FinalProjectCS/Song Folder/songs/americanteen.jpg
+Bad	C:/Users/zwols/Desktop/High School/12th Grade/Computer Science AB/FinalProjectCS/Song Folder/songs/bad.jpg
+Divide	C:/Users/zwols/Desktop/High School/12th Grade/Computer Science AB/FinalProjectCS/Song Folder/songs/divide.jpg
+Doo-Wops & Hooligans	C:/Users/zwols/Desktop/High School/12th Grade/Computer Science AB/FinalProjectCS/Song Folder/songs/doowops.jpg
+Evolve	C:/Users/zwols/Desktop/High School/12th Grade/Computer Science AB/FinalProjectCS/Song Folder/songs/evolve.jpg
+Help!	C:/Users/zwols/Desktop/High School/12th Grade/Computer Science AB/FinalProjectCS/Song Folder/songs/help.jpg
+Hey Jude (Single)	C:/Users/zwols/Desktop/High School/12th Grade/Computer Science AB/FinalProjectCS/Song Folder/songs/heyjude.jpg
+Hot Space	C:/Users/zwols/Desktop/High School/12th Grade/Computer Science AB/FinalProjectCS/Song Folder/songs/HotSpace.jpg
+In the Lonely Hour	C:/Users/zwols/Desktop/High School/12th Grade/Computer Science AB/FinalProjectCS/Song Folder/songs/inthelonelyhour.jpg
+Love, Simon(Original Motion Picture Soundtrack)	C:/Users/zwols/Desktop/High School/12th Grade/Computer Science AB/FinalProjectCS/Song Folder/songs/lovesimon.jpg
+Meet the Beatles!	C:/Users/zwols/Desktop/High School/12th Grade/Computer Science AB/FinalProjectCS/Song Folder/songs/Meet_the_Beatles.jpg
+Night Visions	C:/Users/zwols/Desktop/High School/12th Grade/Computer Science AB/FinalProjectCS/Song Folder/songs/Night_Visions_Album_Cover.jpg
+Overexposed	C:/Users/zwols/Desktop/High School/12th Grade/Computer Science AB/FinalProjectCS/Song Folder/songs/overexposed.jpg
+Red Pill Blues	C:/Users/zwols/Desktop/High School/12th Grade/Computer Science AB/FinalProjectCS/Song Folder/songs/redpillblues.jpg
+Revolver	C:/Users/zwols/Desktop/High School/12th Grade/Computer Science AB/FinalProjectCS/Song Folder/songs/revolver.jpg
+Suncity	C:/Users/zwols/Desktop/High School/12th Grade/Computer Science AB/FinalProjectCS/Song Folder/songs/suncity.jpg
+The Thrill of It All	C:/Users/zwols/Desktop/High School/12th Grade/Computer Science AB/FinalProjectCS/Song Folder/songs/thrill of it all.jpg
+Thriller	C:/Users/zwols/Desktop/High School/12th Grade/Computer Science AB/FinalProjectCS/Song Folder/songs/thriller.jpg
+Twist and Shout	C:/Users/zwols/Desktop/High School/12th Grade/Computer Science AB/FinalProjectCS/Song Folder/songs/twistandshout.jpg
+Uptown Funk	C:/Users/zwols/Desktop/High School/12th Grade/Computer Science AB/FinalProjectCS/Song Folder/songs/uptownfunk.jpg
+V	C:/Users/zwols/Desktop/High School/12th Grade/Computer Science AB/FinalProjectCS/Song Folder/songs/v.jpg
+x	C:/Users/zwols/Desktop/High School/12th Grade/Computer Science AB/FinalProjectCS/Song Folder/songs/x.jpg
