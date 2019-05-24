@@ -43,18 +43,6 @@ public class Playlist {
 		return list.get(--index);
 	}
 
-	public Song[] shuffle() {
-		int shuffleIndex = (int) (Math.random() * list.size());
-		Song[] shuffledSongs = new Song[list.size()];
-		for (int k = 0; k < shuffledSongs.length; k++) {
-			while (shuffledSongs[shuffleIndex] != null) {
-				shuffleIndex = (int) (Math.random() * list.size());
-			}
-			shuffledSongs[shuffleIndex] = list.get(k);
-		}
-
-		return shuffledSongs;
-	}
 	
 	public Song[] getPlaylist() {
 		Song[] playlist = new Song[list.size()];

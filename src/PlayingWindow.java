@@ -263,6 +263,22 @@ public class PlayingWindow extends JPanel {
 			isPaused = false;
 		}
 	}
+	
+	public void shuffle() {
+		int shuffleIndex = (int) (Math.random() * queue.size());
+		Song[] shuffledSongs = new Song[queue.size()];
+		for (int k = 0; k < shuffledSongs.length; k++) {
+			while (shuffledSongs[shuffleIndex] != null) {
+				shuffleIndex = (int) (Math.random() * queue.size());//check if here if issue
+			}
+			shuffledSongs[shuffleIndex] = queue.get(k);
+		}
+		
+		for(int k = 0; k < queue.size(); k++)
+			queue.set(k, shuffledSongs[k]);
+		
+	}
+	
 
 	public void addToQueue(Song s) {
 		if (currentSongIndex + 1 > queue.size() - 1) {
