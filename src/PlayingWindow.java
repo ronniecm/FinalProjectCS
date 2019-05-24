@@ -6,7 +6,7 @@ import java.util.*;
 import javax.swing.Timer;
 
 public class PlayingWindow extends JPanel {
-	private JPanel panel_1;
+	private JPanel panel_1, eastPanel;
 	private JSlider slider;
 	private JLabel timeLabel;
 	private JButton playPauseBtn;
@@ -14,7 +14,6 @@ public class PlayingWindow extends JPanel {
 	public static Database d = new Database();
 	private ArrayList<Song> queue = new ArrayList<Song>();
 	private Stack<Song> prev = new Stack<Song>();
-	private int currentSongIndex;
 	private Song currentSong = null;
 	private MarqueePanel mp = new MarqueePanel(new Song("", "", "", "").toString(), 15);
 	private boolean previousPressed = false;
@@ -22,6 +21,8 @@ public class PlayingWindow extends JPanel {
 	private JButton nextBtn = new JButton("Next: Random");
 	private JButton previousBtn;
 	private boolean isSliderPressed = false;
+	private DefaultListModel<String> dlm = new DefaultListModel<String>();
+	private JList<String> queueViewer;
 
 	/**
 	 * Create the frame.
@@ -106,6 +107,9 @@ public class PlayingWindow extends JPanel {
 					previousPressed = false;
 					nextBtn.setText("Next: " + queue.get(0));
 					previousBtn.setText("Previous: " + (prev.isEmpty() ? "None" : prev.peek()));
+					dlm.clear();
+					for(Song s : queue)
+						dlm.addElement(s.toString());
 				}
 			}
 		});
@@ -165,6 +169,17 @@ public class PlayingWindow extends JPanel {
 					playPause();
 			}
 		});
+		
+		eastPanel = new JPanel();
+		eastPanel.setLayout(new BorderLayout());
+		add(eastPanel, BorderLayout.EAST);
+		
+		JLabel queueLabel = new JLabel("Queue");
+		queueLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		eastPanel.add(queueLabel, BorderLayout.NORTH);
+		
+		queueViewer = new JList<String>(dlm);
+		eastPanel.add(queueViewer, BorderLayout.CENTER);
 	}
 
 	private void updateTimeThread() {
@@ -247,9 +262,12 @@ public class PlayingWindow extends JPanel {
 		int b = (int) (Math.random() * 256);
 		panel_1.setBackground(new Color(r, g, b));
 		albumArtwork.setBackground(panel_1.getBackground());
-		System.out.println("index: " + currentSongIndex);
+
 		nextBtn.setText("Next: " + (queue.isEmpty() ? "Random" : queue.get(0)));
 		previousBtn.setText("Previous: " + prev.peek());
+		dlm.clear();
+		for(Song s : queue)
+			dlm.addElement(s.toString());
 	}
 
 	private void playPause() {
@@ -281,12 +299,14 @@ public class PlayingWindow extends JPanel {
 	
 
 	public void addToQueue(Song s) {
-		if (currentSongIndex + 1 > queue.size() - 1) {
+		if (queue.isEmpty()) {
 			queue.add(s);
 			nextBtn.setText("Next: " + s.getInfo(Metadata.TITLE));
 		} else {
 			queue.add(s);
 		}
+		
+		dlm.addElement(s.toString());
 	}
 
 	public void removeFromQueue(Song s) {
