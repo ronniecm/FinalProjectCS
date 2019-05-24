@@ -109,6 +109,9 @@ public class HomeView extends JPanel {
 					}
 				});
 				menu.add(remove);
+				
+				JMenuItem shufflePlay = new JMenuItem("Play Shuffled");
+				
 				menu.show(playlistList, e.getX(), e.getY());
 			}
 		});
