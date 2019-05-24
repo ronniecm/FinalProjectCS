@@ -44,22 +44,12 @@ public class HomeView extends JPanel {
 
 		JPanel panel_1 = new JPanel();
 		panel.add(panel_1);
-		panel_1.setLayout(new GridLayout(0, 2, 0, 0));
+		panel_1.setLayout(new GridLayout(0, 1, 0, 0));
 
 		JButton addPlaylistBtn = new JButton("Add Playlist");
 		panel_1.add(addPlaylistBtn);
 
-		JButton removePlaylistBtn = new JButton("Remove Playlist");
-		removePlaylistBtn.addActionListener(new ActionListener() {
 
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				playlistMap.remove(playlistList.getSelectedValue());
-				listModel.remove(playlistList.getSelectedIndex());
-			}
-		});
-		
-		panel_1.add(removePlaylistBtn);
 		addPlaylistBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				if (playlistMap.containsKey(userText.getText()))
@@ -87,9 +77,39 @@ public class HomeView extends JPanel {
 		playlistList.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				viewer.updateTo(playlistMap.get(playlistList.getSelectedValue()));
-				Main.app.updatePlaylistViewer(playlistMap.get(playlistList.getSelectedValue()));
-				//setVisible(false);
+				JPopupMenu menu = new JPopupMenu();
+				JMenuItem play = new JMenuItem("Play in Order");
+				play.addActionListener(new ActionListener() {
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						for(Song s : playlistMap.get(playlistList.getSelectedValue()).getPlaylist())
+							Main.app.addToQueue(s);
+					}
+				});
+				menu.add(play);
+				
+				JMenuItem edit = new JMenuItem("Edit Playlist");
+				edit.addActionListener(new ActionListener() {
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						viewer.updateTo(playlistMap.get(playlistList.getSelectedValue()));
+						Main.app.updatePlaylistViewer(playlistMap.get(playlistList.getSelectedValue()));
+						setVisible(false);
+					}
+				});
+				menu.add(edit);
+				
+				JMenuItem remove = new JMenuItem("Remove Playlist");
+				remove.addActionListener(new ActionListener() {
+					
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						playlistMap.remove(playlistList.getSelectedValue());
+						listModel.remove(playlistList.getSelectedIndex());
+					}
+				});
+				menu.add(remove);
+				menu.show(playlistList, e.getX(), e.getY());
 			}
 		});
 	}
