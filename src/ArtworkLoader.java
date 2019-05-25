@@ -27,7 +27,7 @@ public class ArtworkLoader {
 		String temp;
 		while (infile.hasNextLine()) {
 			temp = infile.nextLine();
-			filepathMap.put(temp.substring(0, temp.indexOf("	")), temp.substring(temp.indexOf("\\")));
+			filepathMap.put(temp.substring(0, temp.indexOf("	")), temp.substring(temp.indexOf("S")));
 		}
 		infile.close();
 		
