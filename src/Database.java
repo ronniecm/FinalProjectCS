@@ -1,27 +1,30 @@
 import java.io.*;
 import java.util.*;
 
-public class Database {
+public class Database
+{
 	private Map<String, Song> database = new TreeMap<String, Song>();
 
-	public Database() {
-		try {
+	public Database()
+	{
+		try
+		{
 			generateDatabase();
-		} catch (Exception e) {
+		} catch (Exception e)
+		{
 			// TODO Auto-generated catch block
 			e.getStackTrace();
 		}
 	}
 
-	private void generateDatabase() throws FileNotFoundException {
+	private void generateDatabase() throws FileNotFoundException
+	{
 		Scanner infile = new Scanner(new File("songs.txt"));
 		/*
-		String title = "";
-		String artist = "";
-		String album = "";
-		String path = "";
-		*/
-		while (infile.hasNext()) {
+		 * String title = ""; String artist = ""; String album = ""; String path = "";
+		 */
+		while (infile.hasNext())
+		{
 			String line = infile.nextLine();
 			String title = line.substring(0, line.indexOf("	"));
 			line = line.substring(line.indexOf("	") + 1);
@@ -35,17 +38,20 @@ public class Database {
 		infile.close();
 	}
 
-	public Song getSong(String key) {
+	public Song getSong(String key)
+	{
 		return database.get(key);
 	}
 
-	public void playDB() throws Exception {
+	public void playDB() throws Exception
+	{
 		Song s = database.get("Bohemian Rhapsody");
 		s.playFromStart();
 		Thread.sleep(s.getRunningTimeInSeconds() * 1000);
 	}
 
-	public String toString() {
+	public String toString()
+	{
 		String result = "";
 		Set<String> keySet = database.keySet();
 		for (String key : keySet)
@@ -54,11 +60,13 @@ public class Database {
 		return result;
 	}
 
-	public Set<String> getNames() {
+	public Set<String> getNames()
+	{
 		return database.keySet();
 	}
 
-	public String[] toArray() {
+	public String[] toArray()
+	{
 		String[] songs = new String[database.size()];
 		Set<String> keySet = database.keySet();
 		int i = 0;
@@ -67,7 +75,8 @@ public class Database {
 		return songs;
 	}
 
-	public Song getRandomSong() {
+	public Song getRandomSong()
+	{
 		Set<String> keySet = database.keySet();
 		Object[] keySetArray = keySet.toArray();
 		int randomInd = (int) (Math.random() * keySetArray.length);

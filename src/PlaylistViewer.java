@@ -99,7 +99,7 @@ public class PlaylistViewer extends JPanel {
 						String selectedSong = playList.getSelectedValue();
 						String title = selectedSong.substring(0, selectedSong.indexOf(" by"));
 						Main.app.addToQueue(PlayingWindow.d.getSong(title));
-						System.out.println("added: " + PlayingWindow.d.getSong(title) + " to playlist");
+						// System.out.println("added: " + PlayingWindow.d.getSong(title) + " to playlist");
 
 					}
 				});

@@ -12,7 +12,7 @@ public class ArtworkLoader {
 
 	public static void main(String[] args)
 	{
-		System.out.println(new ArtworkLoader());
+		//System.out.println(new ArtworkLoader());
 	}
 	public ArtworkLoader() {
 		try {

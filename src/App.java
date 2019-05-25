@@ -15,7 +15,8 @@ public class App extends JFrame {
 		}
 		catch(Exception e)
 		{
-			System.out.println("help");
+			//System.out.println("help");
+			e.getStackTrace();
 		}
 		tabbedPane = new JTabbedPane();
 		tabbedPane.addTab("Home View", home);

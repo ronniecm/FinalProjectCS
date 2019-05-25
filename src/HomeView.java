@@ -79,7 +79,7 @@ public class HomeView extends JPanel {
 		playlistList.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				System.out.println("hello");
+				// System.out.println("hello");
 				JPopupMenu menu = new JPopupMenu();
 				JMenuItem play = new JMenuItem("Play in Order");
 				play.addActionListener(new ActionListener() {
