@@ -9,6 +9,14 @@ public class App extends JFrame {
 	private JTabbedPane tabbedPane;
 	
 	public App() {
+		try
+		{
+			UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
+		}
+		catch(Exception e)
+		{
+			System.out.println("help");
+		}
 		tabbedPane = new JTabbedPane();
 		tabbedPane.addTab("Home View", home);
 		tabbedPane.addTab("Playlist Viewer", viewer);
