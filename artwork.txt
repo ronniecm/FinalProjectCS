@@ -1,28 +1,28 @@
-A Night at the Opera	C:\Users\zwols\Desktop\High School\12th Grade\Computer Science AB\FinalProjectCS\Song Folder\NightAtTheOpera.jpg
-News of the World	C:\Users\zwols\Desktop\High School\12th Grade\Computer Science AB\FinalProjectCS\Song Folder\Queen_News_Of_The_World.jpg
-The Game	C:\Users\zwols\Desktop\High School\12th Grade\Computer Science AB\FinalProjectCS\Song Folder\TheGame.jpg
-"21"	C:\Users\zwols\Desktop\High School\12th Grade\Computer Science AB\FinalProjectCS\Song Folder\21cover.jpg
-"25"	C:\Users\zwols\Desktop\High School\12th Grade\Computer Science AB\FinalProjectCS\Song Folder\25cover.jpg
-24K Magic	C:\Users\zwols\Desktop\High School\12th Grade\Computer Science AB\FinalProjectCS\Song Folder\24kmagic.jpg
-American Teen	C:\Users\zwols\Desktop\High School\12th Grade\Computer Science AB\FinalProjectCS\Song Folder\americanteen.jpg
-Bad	C:\Users\zwols\Desktop\High School\12th Grade\Computer Science AB\FinalProjectCS\Song Folder\bad.jpg
-Divide	C:\Users\zwols\Desktop\High School\12th Grade\Computer Science AB\FinalProjectCS\Song Folder\divide.jpg
-Doo-Wops & Hooligans	C:\Users\zwols\Desktop\High School\12th Grade\Computer Science AB\FinalProjectCS\Song Folder\doowops.jpg
-Evolve	C:\Users\zwols\Desktop\High School\12th Grade\Computer Science AB\FinalProjectCS\Song Folder\evolve.jpg
-Help!	C:\Users\zwols\Desktop\High School\12th Grade\Computer Science AB\FinalProjectCS\Song Folder\help.jpg
-Hey Jude (Single)	C:\Users\zwols\Desktop\High School\12th Grade\Computer Science AB\FinalProjectCS\Song Folder\heyjude.jpg
-Hot Space	C:\Users\zwols\Desktop\High School\12th Grade\Computer Science AB\FinalProjectCS\Song Folder\HotSpace.jpg
-In the Lonely Hour	C:\Users\zwols\Desktop\High School\12th Grade\Computer Science AB\FinalProjectCS\Song Folder\inthelonelyhour.jpg
-Love, Simon(Original Motion Picture Soundtrack)	C:\Users\zwols\Desktop\High School\12th Grade\Computer Science AB\FinalProjectCS\Song Folder\lovesimon.jpg
-Meet the Beatles!	C:\Users\zwols\Desktop\High School\12th Grade\Computer Science AB\FinalProjectCS\Song Folder\Meet_the_Beatles.jpg
-Night Visions	C:\Users\zwols\Desktop\High School\12th Grade\Computer Science AB\FinalProjectCS\Song Folder\Night_Visions_Album_Cover.jpg
-Overexposed	C:\Users\zwols\Desktop\High School\12th Grade\Computer Science AB\FinalProjectCS\Song Folder\overexposed.jpg
-Red Pill Blues	C:\Users\zwols\Desktop\High School\12th Grade\Computer Science AB\FinalProjectCS\Song Folder\redpillblues.jpg
-Revolver	C:\Users\zwols\Desktop\High School\12th Grade\Computer Science AB\FinalProjectCS\Song Folder\revolver.jpg
-Suncity	C:\Users\zwols\Desktop\High School\12th Grade\Computer Science AB\FinalProjectCS\Song Folder\suncity.jpg
-The Thrill of It All	C:\Users\zwols\Desktop\High School\12th Grade\Computer Science AB\FinalProjectCS\Song Folder\thrill of it all.jpg
-Thriller	C:\Users\zwols\Desktop\High School\12th Grade\Computer Science AB\FinalProjectCS\Song Folder\thriller.jpg
-Twist and Shout	C:\Users\zwols\Desktop\High School\12th Grade\Computer Science AB\FinalProjectCS\Song Folder\twistandshout.jpg
-Uptown Funk	C:\Users\zwols\Desktop\High School\12th Grade\Computer Science AB\FinalProjectCS\Song Folder\uptownfunk.jpg
-V	C:\Users\zwols\Desktop\High School\12th Grade\Computer Science AB\FinalProjectCS\Song Folder\v.jpg
-x	C:\Users\zwols\Desktop\High School\12th Grade\Computer Science AB\FinalProjectCS\Song Folder\x.jpg
+A Night at the Opera	Song Folder\NightAtTheOpera.jpg
+News of the World	Song Folder\Queen_News_Of_The_World.jpg
+The Game	Song Folder\TheGame.jpg
+"21"	Song Folder\21cover.jpg
+"25"	Song Folder\25cover.jpg
+24K Magic	Song Folder\24kmagic.jpg
+American Teen	Song Folder\americanteen.jpg
+Bad	Song Folder\bad.jpg
+Divide	Song Folder\divide.jpg
+Doo-Wops & Hooligans	Song Folder\doowops.jpg
+Evolve	Song Folder\evolve.jpg
+Help!	Song Folder\help.jpg
+Hey Jude (Single)	Song Folder\heyjude.jpg
+Hot Space	Song Folder\HotSpace.jpg
+In the Lonely Hour	Song Folder\inthelonelyhour.jpg
+Love, Simon(Original Motion Picture Soundtrack)	Song Folder\lovesimon.jpg
+Meet the Beatles!	Song Folder\Meet_the_Beatles.jpg
+Night Visions	Song Folder\Night_Visions_Album_Cover.jpg
+Overexposed	Song Folder\overexposed.jpg
+Red Pill Blues	Song Folder\redpillblues.jpg
+Revolver	Song Folder\revolver.jpg
+Suncity	Song Folder\suncity.jpg
+The Thrill of It All	Song Folder\thrill of it all.jpg
+Thriller	Song Folder\thriller.jpg
+Twist and Shout	Song Folder\twistandshout.jpg
+Uptown Funk	Song Folder\uptownfunk.jpg
+V	Song Folder\v.jpg
+x	Song Folder\x.jpg
