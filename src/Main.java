@@ -1,12 +1,8 @@
-
-import javax.swing.*;
-import java.awt.*;
-
 import javax.swing.*;
 import java.awt.*;
 
 public class Main {
-	public static Application app = new Application();
+	public static App app = new App();
 	public static void main(String[] args) {
 		System.out.println(UIManager.getSystemLookAndFeelClassName());
 	}

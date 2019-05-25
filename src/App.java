@@ -2,13 +2,13 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class Application extends JFrame {
+public class App extends JFrame {
 	private HomeView home = new HomeView();
 	private PlaylistViewer viewer = new PlaylistViewer();
 	private PlayingWindow playingWindow;
 	private JTabbedPane tabbedPane;
 	
-	public Application() {
+	public App() {
 		tabbedPane = new JTabbedPane();
 		tabbedPane.addTab("Home View", home);
 		tabbedPane.addTab("Playlist Viewer", viewer);
