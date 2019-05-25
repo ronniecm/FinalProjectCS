@@ -66,7 +66,7 @@ public class PlayingWindow extends JPanel {
 		panel_1.add(slider);
 
 		timeLabel = new JLabel("0:00");
-		timeLabel.setBounds(780, 505, 28, 16);
+		timeLabel.setBounds(800, 505, 28, 16);
 		panel_1.add(timeLabel);
 
 		previousBtn = new JButton("Previous");
