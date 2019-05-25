@@ -1,3 +1,4 @@
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -8,13 +9,6 @@ public class Application extends JFrame {
 	private JTabbedPane tabbedPane;
 	
 	public Application() {
-		try {
-			UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
-		}
-		catch(Exception e)
-		{
-			System.out.println(UIManager.getCrossPlatformLookAndFeelClassName());
-		}
 		tabbedPane = new JTabbedPane();
 		tabbedPane.addTab("Home View", home);
 		tabbedPane.addTab("Playlist Viewer", viewer);
@@ -33,7 +27,8 @@ public class Application extends JFrame {
 	
 	public void updatePlaylistViewer(Playlist p) {
 		viewer.updateTo(p);
-		tabbedPane.setSelectedIndex(1);
+		if(p != null)
+			tabbedPane.setSelectedIndex(1);
 	}
 	
 	public void goHome() {

@@ -6,7 +6,7 @@ import java.util.*;
 import javax.swing.Timer;
 
 public class PlayingWindow extends JPanel {
-	private JPanel panel_1;
+	private JPanel panel_1, eastPanel;
 	private JSlider slider;
 	private JLabel timeLabel;
 	private JButton playPauseBtn;
@@ -14,7 +14,6 @@ public class PlayingWindow extends JPanel {
 	public static Database d = new Database();
 	private ArrayList<Song> queue = new ArrayList<Song>();
 	private Stack<Song> prev = new Stack<Song>();
-	private int currentSongIndex;
 	private Song currentSong = null;
 	private MarqueePanel mp = new MarqueePanel(new Song("", "", "", "").toString(), 15);
 	private boolean previousPressed = false;
@@ -22,6 +21,9 @@ public class PlayingWindow extends JPanel {
 	private JButton nextBtn = new JButton("Next: Random");
 	private JButton previousBtn;
 	private boolean isSliderPressed = false;
+	private DefaultListModel<String> dlm = new DefaultListModel<String>();
+	private JList<String> queueViewer;
+	private JButton shuffleBtn;
 
 	/**
 	 * Create the frame.
@@ -51,10 +53,11 @@ public class PlayingWindow extends JPanel {
 		panel_1.add(mp, BorderLayout.NORTH);
 
 		albumArtwork = new JButton();
+		albumArtwork.setFocusable(false);
 		albumArtwork.setBorderPainted(false);
 		albumArtwork.setBackground(panel_1.getBackground());
 		albumArtwork.setIcon(new ImageIcon(currentSong.getArtworkPath()));
-		albumArtwork.setBounds(489, 184, 300,300);
+		albumArtwork.setBounds(489, 184, 300, 300);
 		panel_1.add(albumArtwork);
 
 		slider = new JSlider(0, currentSong.getRunningTimeInSeconds());
@@ -67,51 +70,17 @@ public class PlayingWindow extends JPanel {
 		panel_1.add(timeLabel);
 
 		previousBtn = new JButton("Previous");
+		previousBtn.setFocusable(false);
 		previousBtn.setEnabled(false);
 		previousBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				previousPressed = true;
-				currentSong.stop();
-				
-				if (!prev.isEmpty())
-					queue.add(0, currentSong);
-				
-				System.out.println(queue);
-				if (prev.isEmpty()) {
-					try {
-						currentSong.playFromStart();
-					} catch (Exception e2) {
-						// TODO Auto-generated catch block
-						e2.printStackTrace();
-					}
-				} else {
-					currentSong = prev.pop();
-
-					try {
-						currentSong.playFromStart();
-					} catch (Exception e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					}
-
-					mp.setText(currentSong);
-					playPauseBtn.setText("Pause");
-					isPaused = false;
-					slider.setValue(0);
-					slider.setMaximum(currentSong.getRunningTimeInSeconds());
-					albumArtwork.setIcon(new ImageIcon(currentSong.getArtworkPath()));
-					int r = (int)(Math.random() * 256), g = (int)(Math.random() * 256), b = (int)(Math.random() * 256);
-					panel_1.setBackground(new Color(r, g, b));
-					albumArtwork.setBackground(panel_1.getBackground());
-					previousPressed = false;
-					nextBtn.setText("Next: " + queue.get(0));
-					previousBtn.setText("Previous: " + (prev.isEmpty() ? "None" : prev.peek()));
-				}
+				previous();
 			}
 		});
 		panel.add(previousBtn);
 
 		playPauseBtn = new JButton("Pause");
+		playPauseBtn.setFocusable(false);
 		playPauseBtn.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -120,6 +89,7 @@ public class PlayingWindow extends JPanel {
 		});
 		panel.add(playPauseBtn);
 
+		nextBtn.setFocusable(false);
 		nextBtn.addActionListener(new ActionListener() {
 
 			@Override
@@ -129,12 +99,13 @@ public class PlayingWindow extends JPanel {
 		});
 		panel.add(nextBtn);
 
+		slider.setFocusable(false);
 		slider.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
 				isSliderPressed = true;
 			}
-			
+
 			@Override
 			public void mouseReleased(MouseEvent e) {
 				isSliderPressed = false;
@@ -158,13 +129,50 @@ public class PlayingWindow extends JPanel {
 		updateSongThread();
 		mp.start();
 
-		addKeyListener(new KeyAdapter() {
+		panel_1.setFocusable(true);
+		panel_1.addKeyListener(new KeyAdapter() {
 			@Override
 			public void keyPressed(KeyEvent e) {
-				if (e.getKeyChar() == ' ')
+				if (e.getKeyChar() == 'p')
 					playPause();
+				else if (e.getKeyChar() == 'l')
+					next();
+				else if (e.getKeyChar() == 'j')
+					previous();
 			}
 		});
+
+		eastPanel = new JPanel();
+		eastPanel.setLayout(new BorderLayout());
+		add(eastPanel, BorderLayout.EAST);
+
+		JLabel queueLabel = new JLabel("Queue");
+		queueLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		eastPanel.add(queueLabel, BorderLayout.NORTH);
+
+		JScrollPane scrollPane = new JScrollPane();
+		eastPanel.add(scrollPane, BorderLayout.CENTER);
+		queueViewer = new JList<String>(dlm);
+		scrollPane.setViewportView(queueViewer);
+
+		shuffleBtn = new JButton("Shuffle");
+		shuffleBtn.setFocusable(false);
+		shuffleBtn.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if (queue.size() == 0)
+					JOptionPane.showMessageDialog(panel_1, "Queue is empty. Shuffle cannot be used");
+				else {
+					dlm.clear();
+					shuffle();
+					for (Song s : queue)
+						dlm.addElement(s.toString());
+					nextBtn.setText("Next: " + queue.get(0).toString());
+				}
+			}
+		});
+		eastPanel.add(shuffleBtn, BorderLayout.SOUTH);
 	}
 
 	private void updateTimeThread() {
@@ -217,17 +225,7 @@ public class PlayingWindow extends JPanel {
 			currentSong = d.getRandomSong();
 		else
 			currentSong = queue.remove(0);
-		/*
-		 * if (currentSongIndex + 1 > queue.size() - 1) { currentSong =
-		 * d.getRandomSong(); } else { if (queue.size() == 1) currentSongIndex = 0; else
-		 * currentSongIndex++;
-		 * 
-		 * System.out.println(queue.size());
-		 * 
-		 * if (currentSongIndex > queue.size() - 1) currentSongIndex = 0;
-		 * 
-		 * currentSong = queue.remove(0); }
-		 */
+
 		try {
 			currentSong.playFromStart();
 		} catch (Exception e1) {
@@ -241,15 +239,61 @@ public class PlayingWindow extends JPanel {
 		slider.setMaximum(currentSong.getRunningTimeInSeconds());
 		System.out.println(slider.getMaximum());
 		albumArtwork.setIcon(new ImageIcon(currentSong.getArtworkPath()));
-		
+
 		int r = (int) (Math.random() * 256);
 		int g = (int) (Math.random() * 256);
 		int b = (int) (Math.random() * 256);
 		panel_1.setBackground(new Color(r, g, b));
 		albumArtwork.setBackground(panel_1.getBackground());
-		System.out.println("index: " + currentSongIndex);
+
 		nextBtn.setText("Next: " + (queue.isEmpty() ? "Random" : queue.get(0)));
 		previousBtn.setText("Previous: " + prev.peek());
+		dlm.clear();
+		for (Song s : queue)
+			dlm.addElement(s.toString());
+	}
+
+	private void previous() {
+		previousPressed = true;
+		currentSong.stop();
+
+		if (!prev.isEmpty())
+			queue.add(0, currentSong);
+
+		System.out.println(queue);
+		if (prev.isEmpty()) {
+			try {
+				currentSong.playFromStart();
+			} catch (Exception e2) {
+				// TODO Auto-generated catch block
+				e2.printStackTrace();
+			}
+		} else {
+			currentSong = prev.pop();
+
+			try {
+				currentSong.playFromStart();
+			} catch (Exception e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+
+			mp.setText(currentSong);
+			playPauseBtn.setText("Pause");
+			isPaused = false;
+			slider.setValue(0);
+			slider.setMaximum(currentSong.getRunningTimeInSeconds());
+			albumArtwork.setIcon(new ImageIcon(currentSong.getArtworkPath()));
+			int r = (int) (Math.random() * 256), g = (int) (Math.random() * 256), b = (int) (Math.random() * 256);
+			panel_1.setBackground(new Color(r, g, b));
+			albumArtwork.setBackground(panel_1.getBackground());
+			previousPressed = false;
+			nextBtn.setText("Next: " + queue.get(0));
+			previousBtn.setText("Previous: " + (prev.isEmpty() ? "None" : prev.peek()));
+			dlm.clear();
+			for (Song s : queue)
+				dlm.addElement(s.toString());
+		}
 	}
 
 	private void playPause() {
@@ -263,30 +307,31 @@ public class PlayingWindow extends JPanel {
 			isPaused = false;
 		}
 	}
-	
+
 	public void shuffle() {
 		int shuffleIndex = (int) (Math.random() * queue.size());
 		Song[] shuffledSongs = new Song[queue.size()];
 		for (int k = 0; k < shuffledSongs.length; k++) {
 			while (shuffledSongs[shuffleIndex] != null) {
-				shuffleIndex = (int) (Math.random() * queue.size());//check if here if issue
+				shuffleIndex = (int) (Math.random() * queue.size());// check if here if issue
 			}
 			shuffledSongs[shuffleIndex] = queue.get(k);
 		}
-		
-		for(int k = 0; k < queue.size(); k++)
+
+		for (int k = 0; k < queue.size(); k++)
 			queue.set(k, shuffledSongs[k]);
-		
+
 	}
-	
 
 	public void addToQueue(Song s) {
-		if (currentSongIndex + 1 > queue.size() - 1) {
+		if (queue.isEmpty()) {
 			queue.add(s);
 			nextBtn.setText("Next: " + s.getInfo(Metadata.TITLE));
 		} else {
 			queue.add(s);
 		}
+
+		dlm.addElement(s.toString());
 	}
 
 	public void removeFromQueue(Song s) {
