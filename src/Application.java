@@ -26,7 +26,8 @@ public class Application extends JFrame {
 	
 	public void updatePlaylistViewer(Playlist p) {
 		viewer.updateTo(p);
-		tabbedPane.setSelectedIndex(1);
+		if(p != null)
+			tabbedPane.setSelectedIndex(1);
 	}
 	
 	public void goHome() {

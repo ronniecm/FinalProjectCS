@@ -32,7 +32,7 @@ public class HomeView extends JPanel {
 			public void focusLost(FocusEvent e) {
 				JTextField source = (JTextField) e.getSource();
 				if (source.getText().equals(""))
-					source.setText("Enter playlist name");
+					source.setText("Enter Playlist Name Here");
 			}
 
 			@Override
@@ -54,11 +54,13 @@ public class HomeView extends JPanel {
 			public void actionPerformed(ActionEvent arg0) {
 				if (playlistMap.containsKey(userText.getText()))
 					JOptionPane.showMessageDialog(getHomeView(), "Playlist already exists, choose another name");
+				else if(userText.getText().equals("Enter Playlist Name Here"))
+					JOptionPane.showMessageDialog(getHomeView(), "Playlist cannot be name '" + userText.getText() + "'");
 				else {
 					Playlist p = new Playlist(userText.getText());// take string from another frame as the playlist name
 					playlistMap.put(userText.getText(), p);
-					listModel.insertElementAt(p.getName(), 0);
-					userText.setText("Enter playlist name");
+					listModel.addElement(p.getName());
+					userText.setText("Enter Playlist Name Here");
 				}
 			}
 		});
@@ -77,6 +79,7 @@ public class HomeView extends JPanel {
 		playlistList.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				System.out.println("hello");
 				JPopupMenu menu = new JPopupMenu();
 				JMenuItem play = new JMenuItem("Play in Order");
 				play.addActionListener(new ActionListener() {
@@ -106,11 +109,10 @@ public class HomeView extends JPanel {
 					public void actionPerformed(ActionEvent e) {
 						playlistMap.remove(playlistList.getSelectedValue());
 						listModel.remove(playlistList.getSelectedIndex());
+						Main.app.updatePlaylistViewer(null);
 					}
 				});
-				menu.add(remove);
-				
-				JMenuItem shufflePlay = new JMenuItem("Play Shuffled");
+				menu.add(remove);		
 				
 				menu.show(playlistList, e.getX(), e.getY());
 			}
