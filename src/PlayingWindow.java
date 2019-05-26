@@ -33,6 +33,7 @@ public class PlayingWindow extends JPanel {
 	public PlayingWindow() throws Exception {
 		currentSong = d.getRandomSong(null);
 		currentSong.playFromStart();
+		currentSong.pause();
 		setBorder(new EmptyBorder(5, 5, 5, 5));
 		setLayout(new BorderLayout(0, 0));
 
@@ -83,7 +84,7 @@ public class PlayingWindow extends JPanel {
 		});
 		panel.add(previousBtn);
 
-		playPauseBtn = new JButton("Pause");
+		playPauseBtn = new JButton("Play");
 		playPauseBtn.setFocusable(false);
 		playPauseBtn.addActionListener(new ActionListener() {
 			@Override
