@@ -1,11 +1,7 @@
-import javax.swing.*;
-import javax.swing.UIManager.LookAndFeelInfo;
-
-import java.awt.*;
-
 public class Main {
-	public static Application app = new Application();
+	public static App app = new App();
+
 	public static void main(String[] args) {
-		
+
 	}
 }

@@ -201,7 +201,7 @@ public class PlayingWindow extends JPanel {
 			public void run() {
 				while (true) {
 					if (currentSong.isOver() && !previousPressed && !isSliderPressed) {
-						System.out.println("auto changing song");
+						//System.out.println("auto changing song");
 						next();
 					}
 				}
@@ -213,7 +213,7 @@ public class PlayingWindow extends JPanel {
 	}
 
 	private void next() {
-		System.out.println(queue);
+		//System.out.println(queue);
 		currentSong.stop();
 
 		if (prev.isEmpty())
@@ -237,7 +237,7 @@ public class PlayingWindow extends JPanel {
 		mp.setText(currentSong);
 		slider.setValue(0);
 		slider.setMaximum(currentSong.getRunningTimeInSeconds());
-		System.out.println(slider.getMaximum());
+		//System.out.println(slider.getMaximum());
 		albumArtwork.setIcon(new ImageIcon(currentSong.getArtworkPath()));
 
 		int r = (int) (Math.random() * 256);
@@ -260,7 +260,7 @@ public class PlayingWindow extends JPanel {
 		if (!prev.isEmpty())
 			queue.add(0, currentSong);
 
-		System.out.println(queue);
+		//System.out.println(queue);
 		if (prev.isEmpty()) {
 			try {
 				currentSong.playFromStart();
@@ -350,7 +350,7 @@ public class PlayingWindow extends JPanel {
 		mp.setText(currentSong);
 		slider.setValue(0);
 		slider.setMaximum(currentSong.getRunningTimeInSeconds());
-		System.out.println(currentSong.getRunningTimeInSeconds());
+		//System.out.println(currentSong.getRunningTimeInSeconds());
 		albumArtwork.setIcon(new ImageIcon(currentSong.getArtworkPath()));
 	}
 

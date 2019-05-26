@@ -1,18 +1,22 @@
+
 import javax.swing.*;
 import java.awt.*;
 
-public class Application extends JFrame {
+public class App extends JFrame {
 	private HomeView home = new HomeView();
 	private PlaylistViewer viewer = new PlaylistViewer();
 	private PlayingWindow playingWindow;
 	private JTabbedPane tabbedPane;
 	
-	public Application() {
-		try {
+
+	public App() {
+		try
+		{
 			UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
-			//UIManager.setLookAndFeel(UIManager.getCrossPlatformLookAndFeelClassName());
-		} catch(Exception e) {
-			System.out.println(e.getClass());
+		}
+		catch(Exception e)
+		{
+			//System.out.println("help");
 			e.getStackTrace();
 		}
 		tabbedPane = new JTabbedPane();
