@@ -26,7 +26,9 @@ public class App extends JFrame {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		setBounds(0,0,1280,800);
+		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+		setSize(1280, 800);
+		setLocation((int)(screenSize.width/2 - getSize().getWidth()/2), (int)(screenSize.height/2 - getSize().getHeight()/2));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setContentPane(tabbedPane);
 		setVisible(true);
