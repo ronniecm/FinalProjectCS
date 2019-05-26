@@ -20,6 +20,7 @@ public class App extends JFrame {
 			e.getStackTrace();
 		}
 		tabbedPane = new JTabbedPane();
+		tabbedPane.setFocusable(false);
 		tabbedPane.addTab("Home View", home);
 		tabbedPane.addTab("Playlist Viewer", viewer);
 		try {

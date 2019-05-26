@@ -57,7 +57,7 @@ public class PlayingWindow extends JPanel {
 		albumArtwork.setBorderPainted(false);
 		albumArtwork.setBackground(panel_1.getBackground());
 		albumArtwork.setIcon(new ImageIcon(currentSong.getArtworkPath()));
-		albumArtwork.setBounds(489, 184, 300, 300);
+		albumArtwork.setBounds(489, 184, albumArtwork.getIcon().getIconWidth(), albumArtwork.getIcon().getIconHeight());
 		panel_1.add(albumArtwork);
 
 		slider = new JSlider(0, currentSong.getRunningTimeInSeconds());
@@ -153,6 +153,7 @@ public class PlayingWindow extends JPanel {
 		JScrollPane scrollPane = new JScrollPane();
 		eastPanel.add(scrollPane, BorderLayout.CENTER);
 		queueViewer = new JList<String>(dlm);
+		queueViewer.setFocusable(false);
 		scrollPane.setViewportView(queueViewer);
 
 		shuffleBtn = new JButton("Shuffle");
@@ -239,13 +240,12 @@ public class PlayingWindow extends JPanel {
 		slider.setMaximum(currentSong.getRunningTimeInSeconds());
 		//System.out.println(slider.getMaximum());
 		albumArtwork.setIcon(new ImageIcon(currentSong.getArtworkPath()));
-
+		albumArtwork.setSize(albumArtwork.getIcon().getIconWidth(), albumArtwork.getIcon().getIconHeight());
 		int r = (int) (Math.random() * 256);
 		int g = (int) (Math.random() * 256);
 		int b = (int) (Math.random() * 256);
 		panel_1.setBackground(new Color(r, g, b));
 		albumArtwork.setBackground(panel_1.getBackground());
-
 		nextBtn.setText("Next: " + (queue.isEmpty() ? "Random" : queue.get(0)));
 		previousBtn.setText("Previous: " + prev.peek());
 		dlm.clear();
@@ -284,6 +284,7 @@ public class PlayingWindow extends JPanel {
 			slider.setValue(0);
 			slider.setMaximum(currentSong.getRunningTimeInSeconds());
 			albumArtwork.setIcon(new ImageIcon(currentSong.getArtworkPath()));
+			albumArtwork.setSize(albumArtwork.getIcon().getIconWidth(), albumArtwork.getIcon().getIconHeight());
 			int r = (int) (Math.random() * 256), g = (int) (Math.random() * 256), b = (int) (Math.random() * 256);
 			panel_1.setBackground(new Color(r, g, b));
 			albumArtwork.setBackground(panel_1.getBackground());
