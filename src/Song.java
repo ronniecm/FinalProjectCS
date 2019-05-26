@@ -106,6 +106,10 @@ public class Song
 		return toString().hashCode();
 	}
 
+	public boolean equals(Song other) {
+		return title.equals(other.getInfo(Metadata.TITLE)) && artist.equals(other.getInfo(Metadata.ARTIST)) && album.equals(other.getInfo(Metadata.ALBUM));
+	}
+	
 	private Clip createSong() throws Exception
 	{
 		Clip audio = AudioSystem.getClip();

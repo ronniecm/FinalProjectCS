@@ -31,7 +31,7 @@ public class PlayingWindow extends JPanel {
 	 * @throws Exception
 	 */
 	public PlayingWindow() throws Exception {
-		currentSong = d.getRandomSong();
+		currentSong = d.getRandomSong(null);
 		currentSong.playFromStart();
 		setBorder(new EmptyBorder(5, 5, 5, 5));
 		setLayout(new BorderLayout(0, 0));
@@ -57,7 +57,11 @@ public class PlayingWindow extends JPanel {
 		albumArtwork.setBorderPainted(false);
 		albumArtwork.setBackground(panel_1.getBackground());
 		albumArtwork.setIcon(new ImageIcon(currentSong.getArtworkPath()));
-		albumArtwork.setBounds(489, 184, albumArtwork.getIcon().getIconWidth(), albumArtwork.getIcon().getIconHeight());
+		albumArtwork.setSize(albumArtwork.getIcon().getIconWidth(), albumArtwork.getIcon().getIconHeight());
+		int offsetX = (300 - ((int)albumArtwork.getSize().getWidth())) / 2;
+		int offsetY = (300 - ((int)albumArtwork.getSize().getHeight())) / 2;
+		albumArtwork.setLocation(offsetX + 489, offsetY + 184);
+		//albumArtwork.setBounds(489 + offsetX, 184 + offsetY, albumArtwork.getIcon().getIconWidth(), albumArtwork.getIcon().getIconHeight());
 		panel_1.add(albumArtwork);
 
 		slider = new JSlider(0, currentSong.getRunningTimeInSeconds());
@@ -223,7 +227,7 @@ public class PlayingWindow extends JPanel {
 		prev.push(currentSong);
 
 		if (queue.isEmpty())
-			currentSong = d.getRandomSong();
+			currentSong = d.getRandomSong(currentSong);
 		else
 			currentSong = queue.remove(0);
 
@@ -241,9 +245,9 @@ public class PlayingWindow extends JPanel {
 		//System.out.println(slider.getMaximum());
 		albumArtwork.setIcon(new ImageIcon(currentSong.getArtworkPath()));
 		albumArtwork.setSize(albumArtwork.getIcon().getIconWidth(), albumArtwork.getIcon().getIconHeight());
-		int howMuchToMoveX = (300 - ((int)albumArtwork.getSize().getWidth())) / 2;
-		int howMuchToMoveY = (300 - ((int)albumArtwork.getSize().getHeight())) / 2;
-		albumArtwork.setLocation(489 + howMuchToMoveX, 189 + howMuchToMoveY);
+		int offsetX = (300 - ((int)albumArtwork.getSize().getWidth())) / 2;
+		int offsetY = (300 - ((int)albumArtwork.getSize().getHeight())) / 2;
+		albumArtwork.setLocation(489 + offsetX, 189 + offsetY);
 		int r = (int) (Math.random() * 256);
 		int g = (int) (Math.random() * 256);
 		int b = (int) (Math.random() * 256);
@@ -288,9 +292,9 @@ public class PlayingWindow extends JPanel {
 			slider.setMaximum(currentSong.getRunningTimeInSeconds());
 			albumArtwork.setIcon(new ImageIcon(currentSong.getArtworkPath()));
 			albumArtwork.setSize(albumArtwork.getIcon().getIconWidth(), albumArtwork.getIcon().getIconHeight());
-			int howMuchToMoveX = (300 - ((int)albumArtwork.getSize().getWidth())) / 2;
-			int howMuchToMoveY = (300 - ((int)albumArtwork.getSize().getHeight())) / 2;
-			albumArtwork.setLocation(489 + howMuchToMoveX, 189 + howMuchToMoveY);
+			int offsetX = (300 - ((int)albumArtwork.getSize().getWidth())) / 2;
+			int offsetY = (300 - ((int)albumArtwork.getSize().getHeight())) / 2;
+			albumArtwork.setLocation(489 + offsetX, 189 + offsetY);
 			int r = (int) (Math.random() * 256), g = (int) (Math.random() * 256), b = (int) (Math.random() * 256);
 			panel_1.setBackground(new Color(r, g, b));
 			albumArtwork.setBackground(panel_1.getBackground());
