@@ -361,6 +361,9 @@ public class PlayingWindow extends JPanel {
 		//System.out.println(currentSong.getRunningTimeInSeconds());
 		albumArtwork.setIcon(new ImageIcon(currentSong.getArtworkPath()));
 		albumArtwork.setSize(albumArtwork.getIcon().getIconWidth(), albumArtwork.getIcon().getIconHeight());
+		int howMuchToMoveX = (300 - ((int)albumArtwork.getSize().getWidth())) / 2;
+		int howMuchToMoveY = (300 - ((int)albumArtwork.getSize().getHeight())) / 2;
+		albumArtwork.setLocation(489 + howMuchToMoveX, 189 + howMuchToMoveY);
 		previousBtn.setText("Previous: " + prev.peek());
 		previousBtn.setEnabled(true);
 	}
