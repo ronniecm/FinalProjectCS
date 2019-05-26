@@ -30,7 +30,7 @@ public class App extends JFrame {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		setBounds(0,0,1280,730);
+		setBounds(0,0,1280,800);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setContentPane(tabbedPane);
 		setVisible(true);
