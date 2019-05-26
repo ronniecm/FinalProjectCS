@@ -7,16 +7,12 @@ public class App extends JFrame {
 	private PlaylistViewer viewer = new PlaylistViewer();
 	private PlayingWindow playingWindow;
 	private JTabbedPane tabbedPane;
-	
 
 	public App() {
-		try
-		{
+		try {
 			UIManager.setLookAndFeel("javax.swing.plaf.nimbus.NimbusLookAndFeel");
-		}
-		catch(Exception e)
-		{
-			//System.out.println("help");
+		} catch (Exception e) {
+			// System.out.println("help");
 			e.getStackTrace();
 		}
 		tabbedPane = new JTabbedPane();
@@ -35,21 +31,21 @@ public class App extends JFrame {
 		setContentPane(tabbedPane);
 		setVisible(true);
 	}
-	
+
 	public void updatePlaylistViewer(Playlist p) {
 		viewer.updateTo(p);
-		if(p != null)
+		if (p != null)
 			tabbedPane.setSelectedIndex(1);
 	}
-	
+
 	public void goHome() {
 		tabbedPane.setSelectedIndex(0);
 	}
-	
+
 	public void playSong(Song s) {
 		playingWindow.updateWindow(s);
 	}
-	
+
 	public void addToQueue(Song s) {
 		playingWindow.addToQueue(s);
 	}
