@@ -354,6 +354,7 @@ public class PlayingWindow extends JPanel {
 		slider.setMaximum(currentSong.getRunningTimeInSeconds());
 		//System.out.println(currentSong.getRunningTimeInSeconds());
 		albumArtwork.setIcon(new ImageIcon(currentSong.getArtworkPath()));
+		albumArtwork.setSize(albumArtwork.getIcon().getIconWidth(), albumArtwork.getIcon().getIconHeight());
 		previousBtn.setText("Previous: " + prev.peek());
 		previousBtn.setEnabled(true);
 	}
