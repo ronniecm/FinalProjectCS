@@ -341,6 +341,7 @@ public class PlayingWindow extends JPanel {
 
 	public void updateWindow(Song s) {
 		currentSong.stop();
+		prev.push(currentSong);
 		currentSong = s;
 		try {
 			currentSong.playFromStart();
@@ -353,6 +354,8 @@ public class PlayingWindow extends JPanel {
 		slider.setMaximum(currentSong.getRunningTimeInSeconds());
 		//System.out.println(currentSong.getRunningTimeInSeconds());
 		albumArtwork.setIcon(new ImageIcon(currentSong.getArtworkPath()));
+		previousBtn.setText("Previous: " + prev.peek());
+		previousBtn.setEnabled(true);
 	}
 
 	private class MarqueePanel extends JPanel implements ActionListener {

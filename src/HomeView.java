@@ -113,7 +113,8 @@ public class HomeView extends JPanel {
 				});
 				menu.add(remove);		
 				
-				menu.show(playlistList, e.getX(), e.getY());
+				if(!playlistMap.isEmpty())
+					menu.show(playlistList, e.getX(), e.getY());
 			}
 		});
 	}

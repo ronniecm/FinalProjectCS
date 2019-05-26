@@ -1,69 +1,53 @@
-import java.util.ArrayList;
+import java.util.*;
 
-public class Playlist
-{
+public class Playlist {
 	private String name;
 	private ArrayList<Song> list;
 	private int index;
 
-	public Playlist(String n)
-	{
+	public Playlist(String n) {
 		name = n;
 		list = new ArrayList<Song>();
 		index = 0;
 	}
 
-	public String getName()
-	{
+	public String getName() {
 		return name;
 	}
 
-	public void setName(String n)
-	{
+	public void setName(String n) {
 		name = n;
 	}
 
-	public void addSong(Song s)
-	{
+	public void addSong(Song s) {
 		list.add(s);
 	}
 
-	public void removeSong(Song s)
-	{
+	public void removeSong(Song s) {
 		list.remove(s);
 	}
 
-	public Song getCurrentSong()
-	{
+	public Song getCurrentSong() {
 		return list.get(index);
 	}
 
-	public int getSize()
-	{
+	public int getSize() {
 		return list.size();
 	}
 
-	public Song skip()
-	{
+	public Song skip() {
 		return list.get(++index);
 	}
 
-	public Song previous()
-	{
+	public Song previous() {
 		return list.get(--index);
 	}
 
-	public Song[] getPlaylist()
-	{
-		Song[] playlist = new Song[list.size()];
-		for (int i = 0; i < playlist.length; i++)
-			playlist[i] = list.get(i);
-
-		return playlist;
+	public List<Song> getPlaylist() {
+		return list;
 	}
 
-	public String[] toStringArray()
-	{
+	public String[] toStringArray() {
 		String[] result = new String[list.size()];
 		for (int i = 0; i < result.length; i++)
 			result[i] = list.get(i).toString();
@@ -71,8 +55,7 @@ public class Playlist
 		return result;
 	}
 
-	public String toString()
-	{
+	public String toString() {
 		String result = this.name + "\n";
 		for (Song s : list)
 			result += s.toString();

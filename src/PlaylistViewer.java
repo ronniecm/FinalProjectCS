@@ -1,4 +1,3 @@
-
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
@@ -26,7 +25,7 @@ public class PlaylistViewer extends JPanel {
 		// btnPanel used for buttons at bottom
 		btnPanel = new JPanel();
 		add(btnPanel, BorderLayout.SOUTH);
-		btnPanel.setLayout(new GridLayout(1, 0, 0, 0));
+		btnPanel.setLayout(new GridLayout(1, 3, 0, 0));
 
 		// removeBtn used to remove a song
 		removeBtn = new JButton("Remove Song");
@@ -44,6 +43,7 @@ public class PlaylistViewer extends JPanel {
 
 		// backBtn for going back to HomeView window
 		backBtn = new JButton("Back");
+		backBtn.setFocusable(false);
 		backBtn.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -76,7 +76,7 @@ public class PlaylistViewer extends JPanel {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				JPopupMenu menu = new JPopupMenu();
-				JMenuItem play = new JMenuItem("Play Song");
+				JMenuItem play = new JMenuItem("Play " + playList.getSelectedValue());
 				play.addActionListener(new ActionListener() {
 					@Override
 					public void actionPerformed(ActionEvent e) {
@@ -91,7 +91,7 @@ public class PlaylistViewer extends JPanel {
 
 					}
 				});
-				JMenuItem addToQueue = new JMenuItem("Add to Queue");
+				JMenuItem addToQueue = new JMenuItem("Add " + playList.getSelectedValue() + " to Queue");
 				addToQueue.addActionListener(new ActionListener() {
 
 					@Override
@@ -101,7 +101,7 @@ public class PlaylistViewer extends JPanel {
 						Main.app.addToQueue(PlayingWindow.d.getSong(title));
 					}
 				});
-				JMenuItem removeFromPlaylist = new JMenuItem("Remove from Playlist");
+				JMenuItem removeFromPlaylist = new JMenuItem("Remove " + playList.getSelectedValue() + " from Playlist");
 				removeFromPlaylist.addActionListener(new ActionListener() {
 
 					@Override
@@ -115,7 +115,8 @@ public class PlaylistViewer extends JPanel {
 				menu.add(play);
 				menu.add(addToQueue);
 				menu.add(removeFromPlaylist);
-				menu.show(playList, e.getX(), e.getY());
+				if(m_playlist == null || !m_playlist.getPlaylist().isEmpty())
+					menu.show(playList, e.getX(), e.getY());
 			}
 		});
 		songsPanel.add(playList);
