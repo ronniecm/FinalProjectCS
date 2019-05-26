@@ -241,6 +241,9 @@ public class PlayingWindow extends JPanel {
 		//System.out.println(slider.getMaximum());
 		albumArtwork.setIcon(new ImageIcon(currentSong.getArtworkPath()));
 		albumArtwork.setSize(albumArtwork.getIcon().getIconWidth(), albumArtwork.getIcon().getIconHeight());
+		int howMuchToMoveX = (300 - ((int)albumArtwork.getSize().getWidth())) / 2;
+		int howMuchToMoveY = (300 - ((int)albumArtwork.getSize().getHeight())) / 2;
+		albumArtwork.setLocation(489 + howMuchToMoveX, 189 + howMuchToMoveY);
 		int r = (int) (Math.random() * 256);
 		int g = (int) (Math.random() * 256);
 		int b = (int) (Math.random() * 256);
@@ -285,6 +288,9 @@ public class PlayingWindow extends JPanel {
 			slider.setMaximum(currentSong.getRunningTimeInSeconds());
 			albumArtwork.setIcon(new ImageIcon(currentSong.getArtworkPath()));
 			albumArtwork.setSize(albumArtwork.getIcon().getIconWidth(), albumArtwork.getIcon().getIconHeight());
+			int howMuchToMoveX = (300 - ((int)albumArtwork.getSize().getWidth())) / 2;
+			int howMuchToMoveY = (300 - ((int)albumArtwork.getSize().getHeight())) / 2;
+			albumArtwork.setLocation(489 + howMuchToMoveX, 189 + howMuchToMoveY);
 			int r = (int) (Math.random() * 256), g = (int) (Math.random() * 256), b = (int) (Math.random() * 256);
 			panel_1.setBackground(new Color(r, g, b));
 			albumArtwork.setBackground(panel_1.getBackground());
