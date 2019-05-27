@@ -4,10 +4,6 @@ import java.io.*;
 public class ArtworkLoader {
 	private Map<String, String> filepathMap = new HashMap<String, String>();
 
-	public static void main(String[] args)
-	{
-		//System.out.println(new ArtworkLoader());
-	}
 	public ArtworkLoader() {
 		try {
 			generateLoader();
@@ -25,7 +21,7 @@ public class ArtworkLoader {
 
 		}
 		infile.close();
-		
+
 	}
 
 	public String loadFilepath(String songName) {
@@ -35,6 +31,4 @@ public class ArtworkLoader {
 	public String toString() {
 		return filepathMap.toString();
 	}
-
-	
 }

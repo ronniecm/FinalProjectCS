@@ -31,7 +31,6 @@ public class App extends JFrame {
 		setLocation((int)(screenSize.width/2 - getSize().getWidth()/2), (int)(screenSize.height/2 - getSize().getHeight()/2));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setContentPane(tabbedPane);
-		setVisible(true);
 	}
 
 	public void updatePlaylistViewer(Playlist p) {
@@ -50,5 +49,9 @@ public class App extends JFrame {
 
 	public void addToQueue(Song s) {
 		playingWindow.addToQueue(s);
+	}
+	
+	public void launch() {
+		setVisible(true);		
 	}
 }
