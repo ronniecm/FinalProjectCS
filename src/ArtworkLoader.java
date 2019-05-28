@@ -2,7 +2,7 @@ import java.util.*;
 import java.io.*;
 
 public class ArtworkLoader {
-	private Map<String, String> filepathMap = new HashMap<String, String>();
+	private Map<String, String> filepathMap = new TreeMap<String, String>();
 
 	public ArtworkLoader() {
 		try {
@@ -13,7 +13,8 @@ public class ArtworkLoader {
 	}
 
 	private void generateLoader() throws Exception {
-		Scanner infile = new Scanner(new File("artwork.txt"));
+		InputStream is = Database.class.getResourceAsStream("artwork.txt");
+		Scanner infile = new Scanner(is);
 		String temp;
 		while (infile.hasNextLine()) {
 			temp = infile.nextLine();
@@ -24,8 +25,8 @@ public class ArtworkLoader {
 
 	}
 
-	public String loadFilepath(String songName) {
-		return filepathMap.get(songName);
+	public String loadFilepath(String albumName) {
+		return filepathMap.get(albumName);
 	}
 
 	public String toString() {

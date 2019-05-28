@@ -14,7 +14,8 @@ public class Database {
 	}
 
 	private void generateDatabase() throws FileNotFoundException {
-		Scanner infile = new Scanner(new File("songs.txt"));
+		InputStream is = Database.class.getResourceAsStream("songs.txt");
+		Scanner infile = new Scanner(is);
 		/*
 		 * String title = ""; String artist = ""; String album = ""; String path = "";
 		 */

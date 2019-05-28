@@ -1,21 +1,23 @@
 import javax.sound.sampled.*;
 import java.io.*;
+import java.net.URL;
 import java.security.InvalidParameterException;
 
 public class Song {
-	private String title, artist, album, filepath, artworkFilePath;
+	private String title, artist, album;
 	private Clip song;
 	private ArtworkLoader artworkLoader = new ArtworkLoader();
-	private File audioFile;
+	private URL audioFile, artworkFilePath;
 
 	public Song(String title, String artist, String album, String path) {
 		this.title = title;
 		this.artist = artist;
 		this.album = album;
-		this.filepath = path;
-		artworkFilePath = artworkLoader.loadFilepath(album);
+		if (!album.isEmpty())
+			artworkFilePath = Song.class.getResource(artworkLoader.loadFilepath(album));
+		System.out.println(path);
+		audioFile = Song.class.getResource(path);
 		try {
-			audioFile = new File(filepath);
 			song = createSong();
 		} catch (Exception e) {
 			// System.out.println("Error creating the song. Check constructor for " +
@@ -46,6 +48,7 @@ public class Song {
 	}
 
 	public void playFromStart() throws Exception {
+		System.out.println(audioFile.getFile());
 		song.open(AudioSystem.getAudioInputStream(audioFile));
 		song.setMicrosecondPosition(0);
 		song.start();
@@ -76,7 +79,7 @@ public class Song {
 		return song.isOpen() && getCurrentTimeInSeconds() == getRunningTimeInSeconds();
 	}
 
-	public String getArtworkPath() {
+	public URL getArtworkPath() {
 		return artworkFilePath;
 	}
 
